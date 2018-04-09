@@ -1,0 +1,52 @@
+body {
+    background: #394b59;
+    color: #000;
+}
+
+.loader{
+  padding: 1em;
+  text-align: center;
+  margin-top: 200px;
+  display: block;
+}
+
+/*------------------------------ tooltip ------------------------------ */
+a.tooltip{ color:#848484; font-size:12px;  font-family: FontAwesome;opacity: 1 ; text-align:left; margin-top:6px; float:left; line-height:14px; display: inline;position: relative;}
+a.tooltip i.fa { font-size: 20px;}
+a.tooltip:hover:after{background: #ffc107; font-family:Arial, Helvetica, sans-serif;background: rgba(255,193,7,.8);border-radius: 5px; bottom: 26px;color: #000;content: attr(title);right: -100%;padding: 5px 10px;position: absolute;z-index: 98; float:left; min-width:300px;}
+a.tooltip:hover:before{ border: solid;border-color: #ffc107 transparent;border-width: 6px 6px 0 6px;bottom: 21px;content: "";left: 10%;position: absolute;z-index: 99;}
+
+
+ul.legend{
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  float: left;
+}
+ul.legend li{
+  float: left;
+  margin: 3px 5px;
+  font-size: 10px;
+  color: grey;
+  line-height: 10px;
+}
+ul.legend li i{
+  font-size: 10px;
+  float: left;
+  width: 15px;
+}
+ul.legend li i.green-legend{
+  color: #008001;
+}
+ul.legend li i.yellow-legend{
+  color: #ffff00;
+}
+ul.legend li i.red-legend{
+  color: #ff0000;
+}
+ul.legend li i.grey-legend{
+  color: grey;
+}
+ul.legend li i.magenta-legend{
+  color: #f500ff;
+}

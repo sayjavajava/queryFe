@@ -1,0 +1,80 @@
+<style>
+    header{
+        padding:15px;}
+</style>
+<div class="app-content-body">
+    <div class="fade-loader-bg" *ngIf="isLoggedInProcessed === true">
+        <i class="fa fa-spinner text-yellow fa-pulse fa-fw margin-bottom"></i>
+    </div>
+    <header class="login-header">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <h3>Bright <strong>Life</strong> Admin Panel</h3>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 align">
+            <img src="/public/images/logo2.png" alt="Logo">
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-xs-12 col-md-offset-3">
+                <div class="panel panel-default login-form">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Sign In</h3>
+                    </div>
+                    <div class="panel-body input_adjust">
+                        <form id="loginform" class="form-horizontal" #form="ngForm">
+                            <fieldset>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input (keyup.enter)="login(form)" (ngModelChange)="onChange()" [(ngModel)]="username"
+                                           name="username" #name="ngModel" class="form-control" required
+                                           pattern="[a-zA-Z0-9-_. @]+" placeholder="Username or Email" type="text"
+                                           (change)="getCookie()">
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <input (keyup.enter)="login(form)" [(ngModel)]="password"
+                                           class="form-control" name="pass" #pass="ngModel" required placeholder="Password" type="password">
+                                </div>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12" *ngIf="error"><span class="required text-danger">{{ error }}</span></div>
+                                <div class="col-md-12 col-sm-12 col-xs-12" *ngIf="isPasswordExpired == true">
+                                    <span class="required text-danger">Admin Password Expired, Click
+                                        <a href="/expiredChangePassword?token={{passwordExpiredToken}}">here</a> to change password.</span>
+                                </div>
+
+                                <div class="checkbox" style="float: left;">
+                                    <label>
+                                        <input id="login-remember" type="checkbox" name="remember" value="1" [(ngModel)]="remember" >
+                                        Remember me
+                                    </label>
+                                </div>
+
+                                <button (click)="login(form)" type="button" id="btn-login"
+                                        class="btn btn-md btn-primary btn-block margin-0"
+                                        value="Login"> Login
+                                </button>
+
+                                <hr>
+                                <div class="form-group">
+                                    <div class="control">
+                                        Don't have an account! <a href=""> Sign Up Here  </a>
+                                    </div>
+                                    <div class="password_sec">
+                                        <a (click)="forgotPassword()">Forgot password?</a>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <div class="page-footer-version"> © BrightLife V. 2.2.0 </div>
+        <div class="page-footer-inner"> Developed by <strong>SolutionDots</strong></div>
+    </div>
+</div>
