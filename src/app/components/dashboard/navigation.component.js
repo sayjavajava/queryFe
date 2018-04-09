@@ -12,35 +12,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var requests_service_1 = require("../../services/requests.service");
 var router_1 = require("@angular/router");
-var user_shared_service_1 = require("../../services/user.shared.service");
-var permissions_service_1 = require("../../services/permissions.service");
 var NavigationComponent = (function () {
-    function NavigationComponent(requestsService, router, userSharedService, permissionsService) {
+    function NavigationComponent(requestsService, router) {
         this.requestsService = requestsService;
         this.router = router;
-        this.userSharedService = userSharedService;
-        this.permissionsService = permissionsService;
     }
     ;
     NavigationComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        if (window.localStorage.getItem('access_token')) {
-            this.requestsService.getRequest('/admin/', {})
-                .subscribe(function (response) {
-                if (response['responseCode'] === 'ADM_SUC_08') {
-                    _this.userSharedService.firstName = response['responseData'].firstName;
-                    _this.userSharedService.lastName = response['responseData'].lastName;
-                    _this.userSharedService.profileImg = response['responseData'].profileImg;
-                    _this.userSharedService.userDesignation = response['responseData'].role;
-                    _this.firstName = _this.userSharedService.firstName;
-                    _this.lastName = _this.userSharedService.lastName;
-                    _this.profileImg = _this.userSharedService.profileImg;
-                    _this.userDesignation = _this.userSharedService.userDesignation;
-                }
-            }, function (error) {
-                //console.log(error.json())
-            });
-        }
     };
     NavigationComponent.prototype.logout = function () {
         window.localStorage.removeItem('access_token');
@@ -73,10 +51,9 @@ var NavigationComponent = (function () {
             styleUrls: ['../../styles/dashboard/navigation.style.css']
         }),
         __metadata("design:paramtypes", [requests_service_1.RequestsService,
-            router_1.Router, typeof (_a = typeof user_shared_service_1.UserSharedService !== "undefined" && user_shared_service_1.UserSharedService) === "function" && _a || Object, permissions_service_1.PermissionsService])
+            router_1.Router])
     ], NavigationComponent);
     return NavigationComponent;
-    var _a;
 }());
 exports.NavigationComponent = NavigationComponent;
 //# sourceMappingURL=navigation.component.js.map

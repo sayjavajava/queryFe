@@ -1,7 +1,7 @@
 import {Routes} from '@angular/router';
 // Dashboard Pages
 import {ContentComponent} from '../components/dashboard/content.component';
-import {NotFound404Component} from "../components/errors/not-found-404.component";
+import {NotFound404Component} from '../components/errors/not-found-404.component';
 
 export const DashboardRoutes: Routes = [
     // Dashboard Pages

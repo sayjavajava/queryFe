@@ -10,10 +10,4 @@ import '@angular/router';
 import 'rxjs';
 
 // Other vendors for example jQuery, Lodash or Bootstrap
-import 'lodash';
-import 'numeral';
-import 'angular-2-dropdown-multiselect';
-import 'moment';
-import 'ng2-file-upload';
-
 // You can import js, ts, css, sass, ...

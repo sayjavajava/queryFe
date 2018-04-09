@@ -10,10 +10,5 @@ require("@angular/router");
 // RxJS
 require("rxjs");
 // Other vendors for example jQuery, Lodash or Bootstrap
-require("lodash");
-require("numeral");
-require("angular-2-dropdown-multiselect");
-require("moment");
-require("ng2-file-upload");
 // You can import js, ts, css, sass, ...
 //# sourceMappingURL=vendor.js.map

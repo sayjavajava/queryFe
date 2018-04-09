@@ -15,7 +15,5 @@ target/
 *.iml
 *.ipr
 
-##Node Project##
+### NodeJS ###
 /node_modules
-
-
