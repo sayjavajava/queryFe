@@ -14,20 +14,24 @@ var router_1 = require("@angular/router");
 var requests_service_1 = require("../services/requests.service");
 var permissions_service_1 = require("../services/permissions.service");
 var platform_browser_1 = require("@angular/platform-browser");
+var ng2_toastr_1 = require("ng2-toastr");
 var LoginComponent = (function () {
-    function LoginComponent(requestsService, router, permissionsService, titleService, activatedRoute) {
+    function LoginComponent(requestsService, router, permissionsService, titleService, activatedRoute, toaster, vcr) {
         this.requestsService = requestsService;
         this.router = router;
         this.permissionsService = permissionsService;
         this.titleService = titleService;
         this.activatedRoute = activatedRoute;
+        this.toaster = toaster;
         this.isPasswordExpired = false;
         this.isLoggedInProcessed = false;
+        this.toaster.setRootViewContainerRef(vcr);
     }
     ;
     LoginComponent.prototype.ngOnInit = function () {
     };
     LoginComponent.prototype.login = function (form) {
+        // this.toaster.success('Test Toaster', 'Login');
     };
     LoginComponent.prototype.onChange = function () {
         this.error = null;
@@ -47,7 +51,9 @@ var LoginComponent = (function () {
             router_1.Router,
             permissions_service_1.PermissionsService,
             platform_browser_1.Title,
-            router_1.ActivatedRoute])
+            router_1.ActivatedRoute,
+            ng2_toastr_1.ToastsManager,
+            core_1.ViewContainerRef])
     ], LoginComponent);
     return LoginComponent;
 }());

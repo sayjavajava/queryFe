@@ -1,9 +1,10 @@
-import {Component} from '@angular/core';
+import {Component, ViewContainerRef} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RequestsService} from '../services/requests.service';
 import {PermissionsService} from '../services/permissions.service';
 import {Title} from '@angular/platform-browser';
+import {ToastsManager} from 'ng2-toastr';
 
 @Component({
     selector: 'login-component',
@@ -27,13 +28,17 @@ export class LoginComponent {
                 private router: Router,
                 private permissionsService: PermissionsService,
                 private titleService: Title,
-                private activatedRoute: ActivatedRoute) {
+                private activatedRoute: ActivatedRoute,
+                public toaster: ToastsManager,
+                vcr: ViewContainerRef) {
+        this.toaster.setRootViewContainerRef(vcr);
     };
 
     ngOnInit() {
     }
 
     login(form: NgForm) {
+        // this.toaster.success('Test Toaster', 'Login');
     }
 
     onChange() {

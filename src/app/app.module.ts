@@ -35,6 +35,9 @@ import {APUtilService} from './services/ap.util.service';
 import {PermissionsService} from './services/permissions.service';
 
 import {AppConfig} from './configuration/app.config';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastModule, ToastOptions} from 'ng2-toastr';
+import {CustomOption} from './configuration/CustomOption';
 
 // ========================================================================== //
 
@@ -44,7 +47,8 @@ import {AppConfig} from './configuration/app.config';
         RequestsService,
         APUtilService,
         AppConfig,
-        PermissionsService
+        PermissionsService,
+        {provide: ToastOptions, useClass: CustomOption},
     ],
     imports: [
         // Modules
@@ -52,6 +56,8 @@ import {AppConfig} from './configuration/app.config';
         FormsModule,
         HttpModule,
         routes,
+        BrowserAnimationsModule,
+        ToastModule.forRoot(),
     ],
     declarations: [
         // Third Party Components

@@ -34,6 +34,9 @@ var requests_service_1 = require("./services/requests.service");
 var ap_util_service_1 = require("./services/ap.util.service");
 var permissions_service_1 = require("./services/permissions.service");
 var app_config_1 = require("./configuration/app.config");
+var animations_1 = require("@angular/platform-browser/animations");
+var ng2_toastr_1 = require("ng2-toastr");
+var CustomOption_1 = require("./configuration/CustomOption");
 // ========================================================================== //
 var AppModule = (function () {
     function AppModule() {
@@ -47,7 +50,8 @@ var AppModule = (function () {
                 requests_service_1.RequestsService,
                 ap_util_service_1.APUtilService,
                 app_config_1.AppConfig,
-                permissions_service_1.PermissionsService
+                permissions_service_1.PermissionsService,
+                { provide: ng2_toastr_1.ToastOptions, useClass: CustomOption_1.CustomOption },
             ],
             imports: [
                 // Modules
@@ -55,6 +59,8 @@ var AppModule = (function () {
                 forms_1.FormsModule,
                 http_1.HttpModule,
                 app_routes_1.routes,
+                animations_1.BrowserAnimationsModule,
+                ng2_toastr_1.ToastModule.forRoot(),
             ],
             declarations: [
                 // Third Party Components
