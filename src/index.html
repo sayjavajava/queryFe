@@ -2,58 +2,56 @@
 <html NgModule="AppModule">
 <head>
     <base href="/">
-    <title>HIS</title>
+    <title>HIS | Login</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"
           charset="UTF-8">
-    <link rel="icon" href="../public/images/img/favicon3.png">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <!--css-->
-    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.com/libraries/hint.css">
-    <link rel="stylesheet" href="../public/css/animate.css">
-    <link rel="stylesheet" href="../public/fonts/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../public/fonts/simple-line-icons/css/simple-line-icons.css">
-    <link rel="stylesheet" href="../public/fonts/bootstrap/css/bootstrap-icons.css">
-    <link rel="stylesheet" href="/src/app/styles/app.style.css">
-    <link rel="stylesheet" href="/src/app/styles/font.style.css">
-    <link rel="stylesheet" href="/src/app/styles/login.style.css">
-    <link rel="stylesheet" href="../public/css/custom-style.css">
-    <link rel="stylesheet" href="../public/css/datepicker3.css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
+          type="text/css"/>
+    <link href="/public/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/css/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/css/select2.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/css/components.min.css" rel="stylesheet" id="style_components" type="text/css"/>
+    <link href="/public/css/plugins.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/css/login-5.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/css/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
     <link href="node_modules/ng2-toastr/bundles/ng2-toastr.min.css" rel="stylesheet"/>
     <script src="node_modules/ng2-toastr/bundles/ng2-toastr.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="main.ts"></script>
 </head>
 <body>
 
 <div class="app app-header-fixed">
 
     <app-component>
-        <div class="animated-loading">
-            <video width="128" height="128" loop autoplay muted>
-                <source src="/public/images/logo-gif.mp4" type="video/mp4">
-            </video>
+        <div>
+            Loading....!!!
         </div>
     </app-component>
-    <script type="text/javascript" src="../public/js/jquery.js"></script>
-    <script type="text/javascript" src="../public/js/bootstrap.js"></script>
-    <script type="text/javascript" src="../public/js/bootstrap-datepicker.js"></script>
-
-    <script type="text/javascript" src="../public/js/ui-load.js"></script>
-    <script type="text/javascript" src="../public/js/ui-jp.config.js"></script>
-    <script type="text/javascript" src="../public/js/ui-jp.js"></script>
-    <script type="text/javascript" src="../public/js/ui-nav.js"></script>
-    <script type="text/javascript" src="../public/js/ui-toggle.js"></script>
-    <script type="text/javascript" src="../public/js/ui-client.js"></script>
-    <script type="text/javascript" src="../public/js/app.min.js"></script>
-
+    <script src="/public/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/public/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/public/js/js.cookie.min.js" type="text/javascript"></script>
+    <script src="/public/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="/public/js/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="/public/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <script src="/public/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="/public/js/additional-methods.min.js" type="text/javascript"></script>
+    <script src="/public/js/select2.full.min.js" type="text/javascript"></script>
+    <script src="/public/js/jquery.backstretch.min.js" type="text/javascript"></script>
+    <script src="/public/js/app.min.js" type="text/javascript"></script>
+    <script src="/public/js/login-5.min.js" type="text/javascript"></script>
+    <script src="/public/js/main.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('#clickmewow').click(function () {
+                $('#radio1003').attr('checked', 'checked');
+            });
+        })
+    </script>
 </div>
 </body>
 </html>

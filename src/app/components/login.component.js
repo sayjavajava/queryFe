@@ -12,20 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var requests_service_1 = require("../services/requests.service");
-var permissions_service_1 = require("../services/permissions.service");
-var platform_browser_1 = require("@angular/platform-browser");
-var ng2_toastr_1 = require("ng2-toastr");
 var LoginComponent = (function () {
-    function LoginComponent(requestsService, router, permissionsService, titleService, activatedRoute, toaster, vcr) {
+    function LoginComponent(requestsService, router) {
         this.requestsService = requestsService;
         this.router = router;
-        this.permissionsService = permissionsService;
-        this.titleService = titleService;
-        this.activatedRoute = activatedRoute;
-        this.toaster = toaster;
-        this.isPasswordExpired = false;
-        this.isLoggedInProcessed = false;
-        this.toaster.setRootViewContainerRef(vcr);
     }
     ;
     LoginComponent.prototype.ngOnInit = function () {
@@ -33,27 +23,16 @@ var LoginComponent = (function () {
     LoginComponent.prototype.login = function (form) {
         // this.toaster.success('Test Toaster', 'Login');
     };
-    LoginComponent.prototype.onChange = function () {
-        this.error = null;
-    };
-    LoginComponent.prototype.getCookie = function () {
-    };
     LoginComponent.prototype.forgotPassword = function () {
         this.router.navigate(['/forgotPassword']);
     };
     LoginComponent = __decorate([
         core_1.Component({
             selector: 'login-component',
-            templateUrl: '../templates/login.template.html',
-            styleUrls: ['../styles/login.style.css']
+            templateUrl: '../templates/login.template.html'
         }),
         __metadata("design:paramtypes", [requests_service_1.RequestsService,
-            router_1.Router,
-            permissions_service_1.PermissionsService,
-            platform_browser_1.Title,
-            router_1.ActivatedRoute,
-            ng2_toastr_1.ToastsManager,
-            core_1.ViewContainerRef])
+            router_1.Router])
     ], LoginComponent);
     return LoginComponent;
 }());
