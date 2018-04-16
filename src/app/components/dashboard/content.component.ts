@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RequestsService} from '../../services/requests.service';
 import {Router} from '@angular/router';
-import {PermissionsService} from "../../services/permissions.service";
+import {PermissionsService} from '../../services/permissions.service';
 
 @Component({
     selector: 'content-component',
@@ -16,6 +16,10 @@ export class ContentComponent implements OnInit {
 
     ngOnInit() {
 
+    }
+
+    logout() {
+        alert('logout');
     }
 
 }

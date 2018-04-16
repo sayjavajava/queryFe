@@ -1,10 +1,14 @@
 <header id="header" class="app-header navbar" role="menu">
     <!-- navbar header -->
     <div class="navbar-header bg-dark">
-        <button class="pull-right visible-xs dk" ui-toggle-class="show" target=".navbar-collapse"> <i class="glyphicon glyphicon-cog"></i> </button>
-        <button class="pull-right visible-xs" ui-toggle-class="off-screen" target=".app-aside" ui-scroll="app"> <i class="glyphicon glyphicon-align-justify"></i> </button>
+        <button class="pull-right visible-xs dk" ui-toggle-class="show" target=".navbar-collapse"><i
+                class="glyphicon glyphicon-cog"></i></button>
+        <button class="pull-right visible-xs" ui-toggle-class="off-screen" target=".app-aside" ui-scroll="app"><i
+                class="glyphicon glyphicon-align-justify"></i></button>
         <!-- brand -->
-        <a href="/dashboard" class="navbar-brand text-lt"> <span class="logo-lg"><img src="/public/images/img/logo.png" alt="logo" width="140" height="35"></span>
+        <a href="/dashboard" class="navbar-brand text-lt"> <span class="logo-lg"><img src="/public/images/img/logo.png"
+                                                                                      alt="logo" width="140"
+                                                                                      height="35"></span>
 
             <span class="logo-mini">
 <img src="/public/images/img/mini-logo.png" alt="mini-logo" width="23">
@@ -18,16 +22,24 @@
     <!-- navbar collapse -->
     <div class="collapse pos-rlt navbar-collapse box-shadow bg-white-only">
         <!-- buttons -->
-        <div class="nav navbar-nav hidden-xs"> <a href="/dashboard" class="btn no-shadow navbar-btn" ui-toggle-class="app-aside-folded" target=".app"> <i class="fa fa-dedent fa-fw text"></i> <i class="fa fa-indent fa-fw text-active"></i> </a> <a href="#" class="btn no-shadow navbar-btn" ui-toggle-class="show" target="#aside-user"> <i class="icon-user fa-fw"></i> </a> </div>
+        <div class="nav navbar-nav hidden-xs"><a href="/dashboard" class="btn no-shadow navbar-btn"
+                                                 ui-toggle-class="app-aside-folded" target=".app"> <i
+                class="fa fa-dedent fa-fw text"></i> <i class="fa fa-indent fa-fw text-active"></i> </a> <a href="#"
+                                                                                                            class="btn no-shadow navbar-btn"
+                                                                                                            ui-toggle-class="show"
+                                                                                                            target="#aside-user">
+            <i class="icon-user fa-fw"></i> </a></div>
         <!-- / buttons -->
 
         <!-- link and dropdown -->
         <ul class="nav navbar-nav hidden-sm">
-            <li class="dropdown"> <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                <i class="fa fa-fw fa-plus visible-xs-inline-block"></i> <span>New</span> <span class="caret"></span> </a>
+            <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                <i class="fa fa-fw fa-plus visible-xs-inline-block"></i> <span>New</span> <span class="caret"></span>
+            </a>
                 <ul class="dropdown-menu animated fadeInDown w" role="menu">
-                    <li *ngIf="permissionsService.hasPermission('create_admin')"><a routerLink="/dashboard/admin/add">Admin</a></li>
-                    <li><a routerLink="/dashboard/customer/add" >Customer</a></li>
+                    <li *ngIf="permissionsService.hasPermission('create_admin')"><a routerLink="/dashboard/admin/add">Admin</a>
+                    </li>
+                    <li><a routerLink="/dashboard/customer/add">Customer</a></li>
                     <!--<li><a routerLink="/dashboard/permission/add" >Permission</a></li>-->
                     <!--<li class="divider"></li>-->
                 </ul>
@@ -37,24 +49,25 @@
 
         <!-- nabar right -->
         <ul class="nav navbar-nav navbar-right">
-         <!--   <li class="dropdown"> <a href="#" data-toggle="dropdown" class="dropdown-toggle"> <i class="icon-bell fa-fw"></i> <span class="visible-xs-inline">Notifications</span> <span class="badge badge-sm up bg-danger pull-right-xs">2</span> </a>
-                &lt;!&ndash; dropdown &ndash;&gt;
-                <div class="dropdown-menu w-xl animated fadeInUp">
-                    <div class="panel bg-white">
-                        <div class="panel-heading b-light bg-light"> <strong>You have <span>2</span> notifications</strong> </div>
-                        <div class="list-group"> <a href="" class="list-group-item"> <span class="pull-left m-r thumb-sm"> <img src="/public/images/img/a0.jpg" alt="..." class="img-circle"> </span> <span class="clear block m-b-none"> Use awesome animate.css<br>
-                <small class="text-muted">10 minutes ago</small> </span> </a> <a href="" class="list-group-item"> <span class="clear block m-b-none"> 1.0 initial released<br>
-                <small class="text-muted">1 hour ago</small> </span> </a> </div>
-                        <div class="panel-footer text-sm"> <a href="" class="pull-right"><i class="fa fa-cog"></i></a> <a href="#notes" data-toggle="class:show animated fadeInRight">See all the notifications</a> </div>
-                    </div>
-                </div>
-                &lt;!&ndash; / dropdown &ndash;&gt;
-            </li>-->
+            <!--   <li class="dropdown"> <a href="#" data-toggle="dropdown" class="dropdown-toggle"> <i class="icon-bell fa-fw"></i> <span class="visible-xs-inline">Notifications</span> <span class="badge badge-sm up bg-danger pull-right-xs">2</span> </a>
+                   &lt;!&ndash; dropdown &ndash;&gt;
+                   <div class="dropdown-menu w-xl animated fadeInUp">
+                       <div class="panel bg-white">
+                           <div class="panel-heading b-light bg-light"> <strong>You have <span>2</span> notifications</strong> </div>
+                           <div class="list-group"> <a href="" class="list-group-item"> <span class="pull-left m-r thumb-sm"> <img src="/public/images/img/a0.jpg" alt="..." class="img-circle"> </span> <span class="clear block m-b-none"> Use awesome animate.css<br>
+                   <small class="text-muted">10 minutes ago</small> </span> </a> <a href="" class="list-group-item"> <span class="clear block m-b-none"> 1.0 initial released<br>
+                   <small class="text-muted">1 hour ago</small> </span> </a> </div>
+                           <div class="panel-footer text-sm"> <a href="" class="pull-right"><i class="fa fa-cog"></i></a> <a href="#notes" data-toggle="class:show animated fadeInRight">See all the notifications</a> </div>
+                       </div>
+                   </div>
+                   &lt;!&ndash; / dropdown &ndash;&gt;
+               </li>-->
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle clear" data-toggle="dropdown">
                     <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm profile-userpic-sm">
 
-                        <img src="/public/images/img/user-yellow.png" alt="..." *ngIf="profileImg === null || profileImg === ''">
+                        <img src="/public/images/img/user-yellow.png" alt="..."
+                             *ngIf="profileImg === null || profileImg === ''">
                         <img src="{{profileImg}}" alt="..." *ngIf="profileImg != null">
                         <i class="on md b-white bottom"></i>
                     </span>
@@ -65,12 +78,12 @@
                 <!-- dropdown -->
                 <ul class="dropdown-menu animated fadeInDown w">
                     <!--<li class="wrapper b-b m-b-sm bg-light m-t-n-xs">-->
-                        <!--<div>-->
-                            <!--<p>300mb of 500mb used</p>-->
-                        <!--</div>-->
-                        <!--<div class="progress progress-xs m-b-none dker">-->
-                            <!--<div class="progress-bar progress-bar-info" data-toggle="tooltip" data-original-title="50%" style="width: 50%"></div>-->
-                        <!--</div>-->
+                    <!--<div>-->
+                    <!--<p>300mb of 500mb used</p>-->
+                    <!--</div>-->
+                    <!--<div class="progress progress-xs m-b-none dker">-->
+                    <!--<div class="progress-bar progress-bar-info" data-toggle="tooltip" data-original-title="50%" style="width: 50%"></div>-->
+                    <!--</div>-->
                     <!--</li>-->
                     <li>
                         <a (click)="goToAdminSettings()">

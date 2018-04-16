@@ -24,7 +24,7 @@ var DashboardComponent = (function () {
         if (!window.localStorage.getItem('access_token')) {
             this.router.navigate(['/login']);
         }
-        this.titleService.setTitle("BrightLife Admin - Dashboard");
+        this.titleService.setTitle('HIS | Dashboard');
     };
     DashboardComponent = __decorate([
         core_1.Component({

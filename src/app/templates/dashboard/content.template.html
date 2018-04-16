@@ -1,94 +1,11 @@
 <div id="content" class="app-content" role="main">
-
-<div class="app-content-body ">
-  <div class="hbox hbox-auto-xs hbox-auto-sm">
-    <!-- main -->
-    <div class="col">
-      <!-- main header -->
-      <div class="bg-light lter b-b wrapper-md">
-        <div class="row">
-          <div class="col-sm-12 col-xs-12">
-            <h1 class="m-n font-thin h3 text-black">Dashboard</h1>
-          </div>
-        </div>
-      </div>
-      <!-- / main header -->
-      <div class="wrapper-md">
-        <!-- stats -->
-        <div class="row">
-          <div class="col-md-12">
-            <div class="panel panel-default">
-              <form class="bs-example form-horizontal">
-                <div class="panel-body dashboard">
-                    <div class="row">
-                        <div class="col-md-3 col-xs-12" *ngIf="permissionsService.hasPermission('manage_permissions')">
-                            <div class="main-box">
-                                <button class="btn-dashboard btn-selectd" routerLink="/dashboard/admin">
-                                    <div class="col-xs-12 col-md-12"> <span class="btn-icon"> <img src="/public/images/img/administrator.png" alt="Administrators"/> </span>
-                                        <span class="btn-title">Administrators</span>
-                                    </div>
-                                    <span class="btn-desc"> <span>Conveniently control and modify the permissions. </span><i class="fa fa-arrow-circle-o-right"></i></span>
-                                </button>
-                                <div class="lft-bdr"></div>
-                                <div class="rgt-bdr"></div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-xs-12">
-                            <div class="main-box">
-                                <button class="btn-dashboard" routerLink="/dashboard/customer"><div class="col-xs-12 col-md-12"> <span class="btn-icon"> <img src="/public/images/img//customers.png" alt="customers"/> </span>
-                                    <span class="btn-title">Customers</span> </div>
-                                    <span class="btn-desc"> <span>Track and boost client engagement. </span><i class="fa fa-arrow-circle-o-right"></i></span>
-                                </button>
-                                <div class="lft-bdr"></div>
-                                <div class="rgt-bdr"></div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-xs-12">
-                            <div class="main-box">
-                                <button class="btn-dashboard" routerLink="/admin/settings"><div class="col-xs-12 col-md-12"> <span class="btn-icon">
-                                    <img src="/public/images/img//setting.png" alt="setting"/> </span> <span class="btn-title">Settings</span> </div>
-                                    <span class="btn-desc"> <span>Customize and personalize various features.</span> <i class="fa fa-arrow-circle-o-right"></i></span>
-                                </button>
-                                <div class="lft-bdr"></div>
-                                <div class="rgt-bdr"></div>
-                            </div>
-                        </div>
-                        <!--<div class="col-md-3 col-xs-12">
-                            <button class="btn-dashboard"> <div class="col-xs-12 col-md-12"><span class="btn-icon"> <img src="/public/images/img//devices-management.png" alt="devices-management"> </span>
-                                <span class="btn-title">Device Management</span> </div>
-                                <span class="btn-desc"> <span>Centralize and organize all available devices. </span><i class="fa fa-arrow-circle-o-right"></i></span>
-
-                            </button>
-                        </div>-->
-                       <div class="col-md-3 col-xs-12">
-                            <div class="main-box">
-                                <button class="btn-dashboard" routerLink="/dashboard/passwordPolicies"> <div class="col-xs-12 col-md-12"><span class="btn-icon"> <img src="/public/images/img//security.png" alt="security"/> </span>
-                                    <span class="btn-title">Security</span> </div>
-                                    <span class="btn-desc"> <span>Stay secure from unauthorized access. </span><i class="fa fa-arrow-circle-o-right"></i></span>
-                                </button>
-                                <div class="lft-bdr"></div>
-                                <div class="rgt-bdr"></div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-xs-12">
-                            <div class="main-box">
-                            <button class="btn-dashboard" routerLink="/dashboard/reports"><div class="col-xs-12 col-md-12"> <span class="btn-icon"> <img src="/public/images/img//reports.png" alt="reports"/> </span>
-                                <span class="btn-title">Reports</span> </div>
-                                <span class="btn-desc"> <span>Get all acquired information in the desired format. </span><i class="fa fa-arrow-circle-o-right"></i></span>
-                            </button>
-                            <div class="lft-bdr"></div>
-                            <div class="rgt-bdr"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-        <!-- / stats -->
-      </div>
+    <div class="app-content-body">
+        <div class="col-md-12 col-xs-12">
+            <h2 class="bold">Welcome !</h2>
+            <p>You are currently logged in as: <strong>Irfan</strong>
+                (<a (click)="logout()" title="Logout"
+                    class="anchor-link-a">Logout</a>)
+            </p>
+            <p>Your current role is: <strong>Master Admin</strong></p></div>
     </div>
-  </div>
-</div>
 </div>

@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {RequestsService} from '../../services/requests.service';
-import {Response} from '@angular/http';
 import {Router} from '@angular/router';
 
 @Component({
