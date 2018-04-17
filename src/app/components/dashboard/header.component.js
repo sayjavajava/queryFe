@@ -18,34 +18,37 @@ var HeaderComponent = (function () {
         this.router = router;
     }
     HeaderComponent.prototype.ngOnInit = function () {
+        /*  if (window.localStorage.getItem('access_token')) {
+              this.requestsService.getRequest(
+                  '/admin/loggedIn'
+                  , {})
+                  .subscribe(
+                      (response: Response) => {
+                          if (response['responseCode'] === 'ADM_SUC_08') {
+                              this.userSharedService.firstName = response['responseData'].firstName;
+                              this.userSharedService.lastName = response['responseData'].lastName;
+                              this.userSharedService.profileImg = response['responseData'].profileImg;
+                              this.userSharedService.userDesignation = response['responseData'].role;
+  
+                              this.firstName = this.userSharedService.firstName;
+                              this.lastName = this.userSharedService.lastName;
+                              this.profileImg = this.userSharedService.profileImg;
+                              this.userDesignation = this.userSharedService.userDesignation;
+                          }
+                      },
+                      (error: any) => {
+                          this.apUtilServer.tokenExpired(error.json()['error']);
+                          //console.log(error.json())
+                      }
+                  );
+          }*/
     };
     HeaderComponent.prototype.logout = function () {
-    };
-    HeaderComponent.prototype.goToAdminProfile = function () {
-        if (window.localStorage.getItem('access_token')) {
-            this.router.navigate(['/admin/profile']);
-        }
-    };
-    HeaderComponent.prototype.createNewCustomer = function () {
-        if (window.localStorage.getItem('access_token')) {
-            this.router.navigate(['/dashboard/customer/add']);
-        }
-    };
-    HeaderComponent.prototype.goToActivityLog = function () {
-        if (window.localStorage.getItem('access_token')) {
-            this.router.navigate(['/admin/activityLogs']);
-        }
-    };
-    HeaderComponent.prototype.goToAdminSettings = function () {
-        if (window.localStorage.getItem('access_token')) {
-            this.router.navigate(['/admin/settings']);
-        }
     };
     HeaderComponent = __decorate([
         core_1.Component({
             selector: 'header-component',
             templateUrl: '../../templates/dashboard/header.template.html',
-            styleUrls: ['../../styles/dashboard/header.style.css']
         }),
         __metadata("design:paramtypes", [requests_service_1.RequestsService,
             router_1.Router])

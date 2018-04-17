@@ -5,7 +5,6 @@ import {Router} from '@angular/router';
 @Component({
     selector: 'header-component',
     templateUrl: '../../templates/dashboard/header.template.html',
-    styleUrls: ['../../styles/dashboard/header.style.css']
 })
 export class HeaderComponent implements OnInit {
     id: number;
@@ -19,32 +18,33 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit() {
+      /*  if (window.localStorage.getItem('access_token')) {
+            this.requestsService.getRequest(
+                '/admin/loggedIn'
+                , {})
+                .subscribe(
+                    (response: Response) => {
+                        if (response['responseCode'] === 'ADM_SUC_08') {
+                            this.userSharedService.firstName = response['responseData'].firstName;
+                            this.userSharedService.lastName = response['responseData'].lastName;
+                            this.userSharedService.profileImg = response['responseData'].profileImg;
+                            this.userSharedService.userDesignation = response['responseData'].role;
+
+                            this.firstName = this.userSharedService.firstName;
+                            this.lastName = this.userSharedService.lastName;
+                            this.profileImg = this.userSharedService.profileImg;
+                            this.userDesignation = this.userSharedService.userDesignation;
+                        }
+                    },
+                    (error: any) => {
+                        this.apUtilServer.tokenExpired(error.json()['error']);
+                        //console.log(error.json())
+                    }
+                );
+        }*/
     }
 
     logout() {
     }
 
-    goToAdminProfile() {
-        if (window.localStorage.getItem('access_token')) {
-            this.router.navigate(['/admin/profile']);
-        }
-    }
-
-    createNewCustomer() {
-        if (window.localStorage.getItem('access_token')) {
-            this.router.navigate(['/dashboard/customer/add']);
-        }
-    }
-
-    goToActivityLog() {
-        if (window.localStorage.getItem('access_token')) {
-            this.router.navigate(['/admin/activityLogs']);
-        }
-    }
-
-    goToAdminSettings() {
-        if (window.localStorage.getItem('access_token')) {
-            this.router.navigate(['/admin/settings']);
-        }
-    }
 }

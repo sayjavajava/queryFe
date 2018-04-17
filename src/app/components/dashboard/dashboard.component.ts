@@ -16,7 +16,7 @@ export class DashboardComponent {
     };
 
     ngOnInit() {
-        if (!window.localStorage.getItem('access_token')) {
+        if (!window.localStorage.getItem(btoa('access_token'))) {
             this.router.navigate(['/login']);
         }
         this.titleService.setTitle('HIS | Dashboard');

@@ -23,7 +23,7 @@ var ContentComponent = (function () {
     ContentComponent.prototype.ngOnInit = function () {
     };
     ContentComponent.prototype.logout = function () {
-        alert('logout');
+        //alert('logout');
     };
     ContentComponent = __decorate([
         core_1.Component({

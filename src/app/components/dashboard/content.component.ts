@@ -19,7 +19,7 @@ export class ContentComponent implements OnInit {
     }
 
     logout() {
-        alert('logout');
+        //alert('logout');
     }
 
 }

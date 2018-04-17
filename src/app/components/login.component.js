@@ -12,16 +12,57 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var requests_service_1 = require("../services/requests.service");
+var user_shared_service_1 = require("../services/user.shared.service");
 var LoginComponent = (function () {
-    function LoginComponent(requestsService, router) {
+    function LoginComponent(requestsService, router, sharedService) {
         this.requestsService = requestsService;
         this.router = router;
+        this.sharedService = sharedService;
     }
     ;
     LoginComponent.prototype.ngOnInit = function () {
     };
     LoginComponent.prototype.login = function (form) {
-        // this.toaster.success('Test Toaster', 'Login');
+        var _this = this;
+        this.requestsService.postRequestOauth2Token('/oauth/token', {
+            'userName': this.username,
+            'password': this.password,
+            'grantType': 'password',
+        })
+            .subscribe(function (response) {
+            if (response['token_type'] === 'bearer') {
+                window.localStorage.setItem(btoa('access_token'), btoa(response['access_token']));
+                window.localStorage.setItem(btoa('refresh_token'), btoa(response['refresh_token']));
+                window.localStorage.setItem(btoa('expire_in'), btoa(response['expires_in']));
+                _this.requestsService.postRequest('/admin/auth/signIn', {
+                    'userName': _this.username,
+                    'password': _this.password,
+                })
+                    .subscribe(function (response) {
+                    if (response['responseCode'] === 'ADM_AUTH_SUC_01') {
+                        _this.sharedService.firstName = response['responseData'].firstName;
+                        _this.sharedService.lastName = response['responseData'].lastName;
+                        _this.router.navigate(['/dashboard']);
+                    }
+                    else {
+                        _this.router.navigate(['/login']);
+                        window.localStorage.removeItem(atob('access_token'));
+                        window.localStorage.removeItem(atob('refresh_token'));
+                        window.localStorage.removeItem(atob('expire_in'));
+                        _this.error = response['responseMessage'];
+                    }
+                }, function (error) {
+                    console.log(error.json());
+                    _this.error = error.json()['responseMessage'];
+                });
+            }
+            else {
+                _this.error = response['responseMessage'];
+                window.localStorage.removeItem(atob('access_token'));
+                window.localStorage.removeItem(atob('refresh_token'));
+                window.localStorage.removeItem(atob('expire_in'));
+            }
+        });
     };
     LoginComponent.prototype.forgotPassword = function () {
         this.router.navigate(['/forgotPassword']);
@@ -32,7 +73,8 @@ var LoginComponent = (function () {
             templateUrl: '../templates/login.template.html'
         }),
         __metadata("design:paramtypes", [requests_service_1.RequestsService,
-            router_1.Router])
+            router_1.Router,
+            user_shared_service_1.UserSharedService])
     ], LoginComponent);
     return LoginComponent;
 }());
