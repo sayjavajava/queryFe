@@ -105,3 +105,8 @@ p{margin:0; padding:0;}
 .small-menu-bck{ background:#5294d0;}
 .side-bar-toggle-menu {margin: 70px 6px 0 0 !important;}
 }
+.animated-loading{
+    width:100%;
+    text-align: center;
+    margin:22% 0;
+}
