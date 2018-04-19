@@ -50,23 +50,15 @@ export class RequestsService {
                 .map((response: Response) => response.json());
         };*/
 
-    /* getRequest(url: any, _params: any) {
-         const headers = new Headers();
-         if (this.getToken()) {
-             headers.append('Authorization', 'Bearer ' + this.getToken());
-         }
-         if (_params.length > 0) {
-             return this.http.get(this.getBEAPIServer() + url + '?' + _params, {headers: headers})
-                 .map((response: Response) => response.json());
-         } else {
-             return this.http.get(this.getBEAPIServer() + url, {headers: headers})
-                 .map((response: Response) => response.json());
-         }
-     }*/
+    getRequest(url: any) {
+        const reqHeader = new HttpHeaders({'Authorization': 'Bearer ' + atob(this.getToken())});
+        reqHeader.append('Content-Type', 'application/json');
+        return this.http.get(this.getBEAPIServer() + url, {headers: reqHeader});
+    }
+
     postRequest(url: any, _params: any) {
         const reqHeader = new HttpHeaders({'Authorization': 'Bearer ' + atob(this.getToken())});
         reqHeader.append('Content-Type', 'application/json');
-        console.log(reqHeader);
         return this.http.post(this.getBEAPIServer() + url, _params, {headers: reqHeader});
     }
 

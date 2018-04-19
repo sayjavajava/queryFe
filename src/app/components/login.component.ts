@@ -19,9 +19,6 @@ export class LoginComponent {
                 private sharedService: UserSharedService) {
     };
 
-    ngOnInit() {
-    }
-
     login(form: NgForm) {
         this.requestsService.postRequestOauth2Token(
             '/oauth/token'
@@ -48,6 +45,8 @@ export class LoginComponent {
                                     if (response['responseCode'] === 'ADM_AUTH_SUC_01') {
                                         this.sharedService.firstName = response['responseData'].firstName;
                                         this.sharedService.lastName = response['responseData'].lastName;
+                                        this.sharedService.profileImg = response['responseData'].profileImg;
+                                        this.sharedService.role = response['responseData'].role;
 
                                         this.router.navigate(['/dashboard']);
                                     } else {
