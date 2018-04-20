@@ -28,6 +28,22 @@ import {CustomOption} from './configuration/CustomOption';
 import {DoctorDashboardComponent} from './components/dashboard/doctor/doctor-dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
 import {UserSharedService} from './services/user.shared.service';
+import {SettingComponent} from './components/dashboard/setting/setting.component';
+import {SettingNavigationComponent} from './components/dashboard/setting/setting-navigation.component';
+import {DoctorComponent} from './components/dashboard/setting/doctor.component';
+import {ICDComponent} from './components/dashboard/setting/icd.component';
+import {DepartmentComponent} from './components/dashboard/setting/department.component';
+import {CashierComponent} from './components/dashboard/setting/cashier.component';
+import {MedicalServiceComponent} from './components/dashboard/setting/medical-service.component';
+import {NurseComponent} from './components/dashboard/setting/nurse.component';
+import {ReceptionistComponent} from './components/dashboard/setting/receptionist.component';
+import {BranchComponent} from './components/dashboard/setting/branch.component';
+import {AddCashierComponent} from './components/dashboard/setting/addcashier.component';
+import {RolePermissionsComponent} from './components/dashboard/setting/role-permissions.component';
+import {AdddoctorComponent} from './components/dashboard/setting/adddoctor.component';
+import {AddNurseComponent} from './components/dashboard/setting/addnurse.component';
+import {AddReceptionistComponent} from './components/dashboard/setting/addreceptionist.component';
+import {AddBranchComponent} from './components/dashboard/setting/addbranch.component';
 
 @NgModule({
     providers: [
@@ -63,6 +79,24 @@ import {UserSharedService} from './services/user.shared.service';
         FooterComponent,
         ContentComponent,
         NotFound404Component,
+
+        //Setting Components
+        SettingComponent,
+        SettingNavigationComponent,
+        DoctorComponent,
+        ICDComponent,
+        DepartmentComponent,
+        CashierComponent,
+        MedicalServiceComponent,
+        NurseComponent,
+        ReceptionistComponent,
+        BranchComponent,
+        AddCashierComponent,
+        RolePermissionsComponent,
+        AdddoctorComponent,
+        AddNurseComponent,
+        AddReceptionistComponent,
+        AddBranchComponent
     ],
     bootstrap: [AppComponent]
 })

@@ -35,6 +35,22 @@ var CustomOption_1 = require("./configuration/CustomOption");
 var doctor_dashboard_component_1 = require("./components/dashboard/doctor/doctor-dashboard.component");
 var http_1 = require("@angular/common/http");
 var user_shared_service_1 = require("./services/user.shared.service");
+var setting_component_1 = require("./components/dashboard/setting/setting.component");
+var setting_navigation_component_1 = require("./components/dashboard/setting/setting-navigation.component");
+var doctor_component_1 = require("./components/dashboard/setting/doctor.component");
+var icd_component_1 = require("./components/dashboard/setting/icd.component");
+var department_component_1 = require("./components/dashboard/setting/department.component");
+var cashier_component_1 = require("./components/dashboard/setting/cashier.component");
+var medical_service_component_1 = require("./components/dashboard/setting/medical-service.component");
+var nurse_component_1 = require("./components/dashboard/setting/nurse.component");
+var receptionist_component_1 = require("./components/dashboard/setting/receptionist.component");
+var branch_component_1 = require("./components/dashboard/setting/branch.component");
+var addcashier_component_1 = require("./components/dashboard/setting/addcashier.component");
+var role_permissions_component_1 = require("./components/dashboard/setting/role-permissions.component");
+var adddoctor_component_1 = require("./components/dashboard/setting/adddoctor.component");
+var addnurse_component_1 = require("./components/dashboard/setting/addnurse.component");
+var addreceptionist_component_1 = require("./components/dashboard/setting/addreceptionist.component");
+var addbranch_component_1 = require("./components/dashboard/setting/addbranch.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -74,6 +90,23 @@ var AppModule = (function () {
                 footer_component_1.FooterComponent,
                 content_component_1.ContentComponent,
                 not_found_404_component_1.NotFound404Component,
+                //Setting Components
+                setting_component_1.SettingComponent,
+                setting_navigation_component_1.SettingNavigationComponent,
+                doctor_component_1.DoctorComponent,
+                icd_component_1.ICDComponent,
+                department_component_1.DepartmentComponent,
+                cashier_component_1.CashierComponent,
+                medical_service_component_1.MedicalServiceComponent,
+                nurse_component_1.NurseComponent,
+                receptionist_component_1.ReceptionistComponent,
+                branch_component_1.BranchComponent,
+                addcashier_component_1.AddCashierComponent,
+                role_permissions_component_1.RolePermissionsComponent,
+                adddoctor_component_1.AdddoctorComponent,
+                addnurse_component_1.AddNurseComponent,
+                addreceptionist_component_1.AddReceptionistComponent,
+                addbranch_component_1.AddBranchComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         })
