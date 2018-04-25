@@ -1,5 +1,5 @@
 import {Routes} from '@angular/router';
-import {DoctorComponent} from '../components/dashboard/setting/doctor.component';
+import {StaffComponent} from '../components/dashboard/setting/staff.component';
 import {ICDComponent} from '../components/dashboard/setting/icd.component';
 import {DepartmentComponent} from '../components/dashboard/setting/department.component';
 import {CashierComponent} from '../components/dashboard/setting/cashier.component';
@@ -9,19 +9,24 @@ import {ReceptionistComponent} from '../components/dashboard/setting/receptionis
 import {BranchComponent} from '../components/dashboard/setting/branch.component';
 import {RolePermissionsComponent} from '../components/dashboard/setting/role-permissions.component';
 import {AddCashierComponent} from '../components/dashboard/setting/addcashier.component';
-import {SettingComponent} from '../components/dashboard/setting/setting.component';
 import {AdddoctorComponent} from '../components/dashboard/setting/adddoctor.component';
 import {AddNurseComponent} from '../components/dashboard/setting/addnurse.component';
 import {AddReceptionistComponent} from '../components/dashboard/setting/addreceptionist.component';
 import {AddBranchComponent} from '../components/dashboard/setting/addbranch.component';
+import {OrganizationComponent} from '../components/dashboard/setting/organization.component';
+import {AddOrganizationComponent} from '../components/dashboard/setting/addorganization.component';
+import {AddStaffComponent} from '../components/dashboard/setting/addstaff.component';
 
 
 export const SettingRoutes: Routes = [
     // Setting Pages
-    {path: '', redirectTo: 'branch', pathMatch: 'full'},
+    {path: '', redirectTo: 'organization', pathMatch: 'full'},
+    {path: 'organization', component: OrganizationComponent},
+    {path: 'organization/add', component: AddOrganizationComponent},
     {path: 'branch', component: BranchComponent},
     {path: 'branch/add', component: AddBranchComponent},
-    {path: 'doctor', component: DoctorComponent},
+    {path: 'staff', component: StaffComponent},
+    {path: 'staff/add', component: AddStaffComponent},
     {path:'doctor/add',component: AdddoctorComponent},
     {path:'nurse',component:NurseComponent},
     {path:'nurse/add',component:AddNurseComponent},

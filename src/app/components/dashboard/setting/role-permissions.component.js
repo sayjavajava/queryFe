@@ -10,17 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var notification_service_1 = require("../../../services/notification.service");
 var RolePermissionsComponent = (function () {
-    function RolePermissionsComponent() {
+    function RolePermissionsComponent(notificationservice) {
+        this.notificationservice = notificationservice;
     }
     RolePermissionsComponent.prototype.ngOnInit = function () {
     };
+    RolePermissionsComponent.prototype.Success = function () { this.notificationservice.Success('succeeded', 'Done'); };
+    RolePermissionsComponent.prototype.Warn = function () { this.notificationservice.Warn('i am goging to die !'); };
+    RolePermissionsComponent.prototype.Error = function () { this.notificationservice.Error('errors are injurious to health ', 'try again'); };
+    RolePermissionsComponent.prototype.Clear = function () { this.notificationservice.Clear(); };
     RolePermissionsComponent = __decorate([
         core_1.Component({
             selector: 'rolepermissions-component',
             templateUrl: '../../../templates/dashboard/setting/roles-permissions.template.html',
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [notification_service_1.NotificationService])
     ], RolePermissionsComponent);
     return RolePermissionsComponent;
 }());

@@ -10,17 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var notification_service_1 = require("../../../services/notification.service");
 var NurseComponent = (function () {
-    function NurseComponent() {
+    function NurseComponent(notificationservice) {
+        this.notificationservice = notificationservice;
     }
     NurseComponent.prototype.ngOnInit = function () {
+    };
+    NurseComponent.prototype.showToaster = function () {
+        this.notificationservice.Success("I am nurse", 'oops');
+        // this.notificationservice.toastsubject.next(" Hi I'm Nurse");
     };
     NurseComponent = __decorate([
         core_1.Component({
             selector: 'nurse-component',
             templateUrl: '../../../templates/dashboard/setting/nurse.template.html',
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [notification_service_1.NotificationService])
     ], NurseComponent);
     return NurseComponent;
 }());

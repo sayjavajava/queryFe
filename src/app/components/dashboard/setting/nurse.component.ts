@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {NotificationService} from '../../../services/notification.service';
 
 @Component({
   selector: 'nurse-component',
@@ -6,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NurseComponent implements OnInit {
 
-  constructor() { }
+  constructor(private notificationservice?:NotificationService) { }
 
   ngOnInit() {
   }
+
+    showToaster(){
+
+    this.notificationservice.Success("I am nurse",'oops');
+   // this.notificationservice.toastsubject.next(" Hi I'm Nurse");
+  }
+
 
 }

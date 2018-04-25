@@ -1,7 +1,7 @@
 // Modules
 import {NgModule, OnInit} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 // App Components
 import {AppComponent} from './components/app.component';
 import {MainComponent} from './components/dashboard/main.component';
@@ -23,14 +23,14 @@ import {PermissionsService} from './services/permissions.service';
 
 import {AppConfig} from './configuration/app.config';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ToastModule, ToastOptions, ToastsManager} from 'ng2-toastr';
+import {ToastOptions, ToastsManager} from 'ng2-toastr';
 import {CustomOption} from './configuration/CustomOption';
 import {DoctorDashboardComponent} from './components/dashboard/doctor/doctor-dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
 import {UserSharedService} from './services/user.shared.service';
 import {SettingComponent} from './components/dashboard/setting/setting.component';
 import {SettingNavigationComponent} from './components/dashboard/setting/setting-navigation.component';
-import {DoctorComponent} from './components/dashboard/setting/doctor.component';
+import {StaffComponent} from './components/dashboard/setting/staff.component';
 import {ICDComponent} from './components/dashboard/setting/icd.component';
 import {DepartmentComponent} from './components/dashboard/setting/department.component';
 import {CashierComponent} from './components/dashboard/setting/cashier.component';
@@ -44,15 +44,22 @@ import {AdddoctorComponent} from './components/dashboard/setting/adddoctor.compo
 import {AddNurseComponent} from './components/dashboard/setting/addnurse.component';
 import {AddReceptionistComponent} from './components/dashboard/setting/addreceptionist.component';
 import {AddBranchComponent} from './components/dashboard/setting/addbranch.component';
+import {MatButtonModule, MatSnackBarModule} from '@angular/material';
+import {NotificationService} from './services/notification.service';
+import {OrganizationComponent} from './components/dashboard/setting/organization.component';
+import {AddOrganizationComponent} from './components/dashboard/setting/addorganization.component';
+import {ReactiveErrors} from '@angular/forms/src/directives/reactive_errors';
+import {AddStaffComponent} from './components/dashboard/setting/addstaff.component';
+
 
 @NgModule({
     providers: [
         // Services
         RequestsService,
+        NotificationService,
         APUtilService,
         AppConfig,
         PermissionsService,
-        ToastsManager,
         {provide: ToastOptions, useClass: CustomOption},
         UserSharedService
     ],
@@ -60,10 +67,13 @@ import {AddBranchComponent} from './components/dashboard/setting/addbranch.compo
         // Modules
         BrowserModule,
         FormsModule,
+        ReactiveFormsModule,
         routes,
         BrowserAnimationsModule,
-        ToastModule.forRoot(),
-        HttpClientModule
+        MatButtonModule,
+        HttpClientModule,
+        MatSnackBarModule,
+
     ],
     declarations: [
         // App Components
@@ -83,7 +93,7 @@ import {AddBranchComponent} from './components/dashboard/setting/addbranch.compo
         //Setting Components
         SettingComponent,
         SettingNavigationComponent,
-        DoctorComponent,
+        StaffComponent,
         ICDComponent,
         DepartmentComponent,
         CashierComponent,
@@ -96,7 +106,10 @@ import {AddBranchComponent} from './components/dashboard/setting/addbranch.compo
         AdddoctorComponent,
         AddNurseComponent,
         AddReceptionistComponent,
-        AddBranchComponent
+        AddBranchComponent,
+        OrganizationComponent,
+        AddOrganizationComponent,
+        AddStaffComponent
     ],
     bootstrap: [AppComponent]
 })

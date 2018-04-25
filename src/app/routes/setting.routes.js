@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var doctor_component_1 = require("../components/dashboard/setting/doctor.component");
+var staff_component_1 = require("../components/dashboard/setting/staff.component");
 var icd_component_1 = require("../components/dashboard/setting/icd.component");
 var department_component_1 = require("../components/dashboard/setting/department.component");
 var cashier_component_1 = require("../components/dashboard/setting/cashier.component");
@@ -14,12 +14,18 @@ var adddoctor_component_1 = require("../components/dashboard/setting/adddoctor.c
 var addnurse_component_1 = require("../components/dashboard/setting/addnurse.component");
 var addreceptionist_component_1 = require("../components/dashboard/setting/addreceptionist.component");
 var addbranch_component_1 = require("../components/dashboard/setting/addbranch.component");
+var organization_component_1 = require("../components/dashboard/setting/organization.component");
+var addorganization_component_1 = require("../components/dashboard/setting/addorganization.component");
+var addstaff_component_1 = require("../components/dashboard/setting/addstaff.component");
 exports.SettingRoutes = [
     // Setting Pages
-    { path: '', redirectTo: 'branch', pathMatch: 'full' },
+    { path: '', redirectTo: 'organization', pathMatch: 'full' },
+    { path: 'organization', component: organization_component_1.OrganizationComponent },
+    { path: 'organization/add', component: addorganization_component_1.AddOrganizationComponent },
     { path: 'branch', component: branch_component_1.BranchComponent },
     { path: 'branch/add', component: addbranch_component_1.AddBranchComponent },
-    { path: 'doctor', component: doctor_component_1.DoctorComponent },
+    { path: 'staff', component: staff_component_1.StaffComponent },
+    { path: 'staff/add', component: addstaff_component_1.AddStaffComponent },
     { path: 'doctor/add', component: adddoctor_component_1.AdddoctorComponent },
     { path: 'nurse', component: nurse_component_1.NurseComponent },
     { path: 'nurse/add', component: addnurse_component_1.AddNurseComponent },
