@@ -53,23 +53,14 @@ var RequestsService = (function () {
             return this.http.delete(this.getBEAPIServer() + url, {headers: headers})
                 .map((response: Response) => response.json());
         };*/
-    /* getRequest(url: any, _params: any) {
-         const headers = new Headers();
-         if (this.getToken()) {
-             headers.append('Authorization', 'Bearer ' + this.getToken());
-         }
-         if (_params.length > 0) {
-             return this.http.get(this.getBEAPIServer() + url + '?' + _params, {headers: headers})
-                 .map((response: Response) => response.json());
-         } else {
-             return this.http.get(this.getBEAPIServer() + url, {headers: headers})
-                 .map((response: Response) => response.json());
-         }
-     }*/
+    RequestsService.prototype.getRequest = function (url) {
+        var reqHeader = new http_1.HttpHeaders({ 'Authorization': 'Bearer ' + atob(this.getToken()) });
+        reqHeader.append('Content-Type', 'application/json');
+        return this.http.get(this.getBEAPIServer() + url, { headers: reqHeader });
+    };
     RequestsService.prototype.postRequest = function (url, _params) {
         var reqHeader = new http_1.HttpHeaders({ 'Authorization': 'Bearer ' + atob(this.getToken()) });
         reqHeader.append('Content-Type', 'application/json');
-        console.log(reqHeader);
         return this.http.post(this.getBEAPIServer() + url, _params, { headers: reqHeader });
     };
     RequestsService = __decorate([

@@ -1,7 +1,7 @@
 <div class="page-header navbar navbar-fixed-top">
     <div class="page-header-inner ">
         <div class="page-logo col-md-3">
-            <a href="index.html"><img src="/public/images/logo.png" alt="logo" class="logo-default"></a>
+            <a routerLink="/dashboard"><img src="/public/images/logo.png" alt="logo" class="logo-default"></a>
             <!--<div class="menu-toggler sidebar-toggler side-bar-toggle-menu" title="Sidebar Menu"><span></span></div>-->
         </div>
         <a href="javascript:;" class="menu-toggler responsive-toggler menua" data-toggle="collapse"
@@ -303,7 +303,7 @@
                 <li class="dropdown dropdown-user">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                        data-close-others="true"><img alt="" class="img-circle" src="/public/images/avatar3_small.jpg">
-                        <span class="username username-hide-on-mobile"> Nick </span>
+                        <span class="username username-hide-on-mobile"> {{firstName}} </span>
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">

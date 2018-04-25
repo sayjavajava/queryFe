@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RequestsService} from '../../services/requests.service';
 import {Router} from '@angular/router';
+import {UserSharedService} from "../../services/user.shared.service";
 
 @Component({
     selector: 'header-component',
@@ -12,36 +13,44 @@ export class HeaderComponent implements OnInit {
     lastName: string;
     profileImg: string;
     userDesignation: string;
+    role: string;
 
     constructor(private requestsService: RequestsService,
-                private router: Router) {
+                private router: Router,
+                private userSharedService: UserSharedService) {
     }
 
     ngOnInit() {
-      /*  if (window.localStorage.getItem('access_token')) {
+
+        if (window.localStorage.getItem(btoa('access_token'))) {
+            this.firstName = this.userSharedService.firstName;
+            this.lastName = this.userSharedService.lastName;
+            this.profileImg = this.userSharedService.profileImg;
+            this.role = this.userSharedService.role;
             this.requestsService.getRequest(
-                '/admin/loggedIn'
-                , {})
+                '/user/loggedInUser')
                 .subscribe(
                     (response: Response) => {
-                        if (response['responseCode'] === 'ADM_SUC_08') {
+                        if (response['responseCode'] === 'ADM_SUC_01') {
                             this.userSharedService.firstName = response['responseData'].firstName;
                             this.userSharedService.lastName = response['responseData'].lastName;
                             this.userSharedService.profileImg = response['responseData'].profileImg;
-                            this.userSharedService.userDesignation = response['responseData'].role;
+                            this.userSharedService.role = response['responseData'].role;
 
                             this.firstName = this.userSharedService.firstName;
                             this.lastName = this.userSharedService.lastName;
                             this.profileImg = this.userSharedService.profileImg;
-                            this.userDesignation = this.userSharedService.userDesignation;
+                            this.role = this.userSharedService.role;
                         }
                     },
                     (error: any) => {
-                        this.apUtilServer.tokenExpired(error.json()['error']);
-                        //console.log(error.json())
+                        // this.apUtilServer.tokenExpired(error.json()['error']);
+                        console.log(error.json())
                     }
                 );
-        }*/
+        } else {
+            this.router.navigate(['/login']);
+        }
     }
 
     logout() {

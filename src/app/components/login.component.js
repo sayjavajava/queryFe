@@ -20,8 +20,6 @@ var LoginComponent = (function () {
         this.sharedService = sharedService;
     }
     ;
-    LoginComponent.prototype.ngOnInit = function () {
-    };
     LoginComponent.prototype.login = function (form) {
         var _this = this;
         this.requestsService.postRequestOauth2Token('/oauth/token', {
@@ -42,6 +40,8 @@ var LoginComponent = (function () {
                     if (response['responseCode'] === 'ADM_AUTH_SUC_01') {
                         _this.sharedService.firstName = response['responseData'].firstName;
                         _this.sharedService.lastName = response['responseData'].lastName;
+                        _this.sharedService.profileImg = response['responseData'].profileImg;
+                        _this.sharedService.role = response['responseData'].role;
                         _this.router.navigate(['/dashboard']);
                     }
                     else {

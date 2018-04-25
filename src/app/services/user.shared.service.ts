@@ -10,4 +10,8 @@ export class UserSharedService {
     firstName: string;
     lastName: string;
     profileImg: string;
+    email: string;
+    userName: string;
+    role: string;
+
 }
