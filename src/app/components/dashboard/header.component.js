@@ -48,6 +48,18 @@ var HeaderComponent = (function () {
         }
     };
     HeaderComponent.prototype.logout = function () {
+        var _this = this;
+        this.requestsService.getRequest('/user/logout')
+            .subscribe(function (response) {
+            if (response['responseCode'] === 'USR_AUTH_SUC_02') {
+                window.localStorage.removeItem(btoa('access_token'));
+                window.localStorage.removeItem(btoa('refresh_token'));
+                window.localStorage.removeItem(btoa('expire_in'));
+                _this.router.navigate(['/login']);
+            }
+        }, function (error) {
+            console.log(error.json);
+        });
     };
     HeaderComponent = __decorate([
         core_1.Component({

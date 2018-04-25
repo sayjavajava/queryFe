@@ -54,6 +54,21 @@ export class HeaderComponent implements OnInit {
     }
 
     logout() {
+        this.requestsService.getRequest(
+            '/user/logout')
+            .subscribe(
+                (response: Response) => {
+                    if (response['responseCode'] === 'USR_AUTH_SUC_02') {
+                        window.localStorage.removeItem(btoa('access_token'));
+                        window.localStorage.removeItem(btoa('refresh_token'));
+                        window.localStorage.removeItem(btoa('expire_in'));
+                        this.router.navigate(['/login']);
+                    }
+                },
+                (error: any) => {
+                    console.log(error.json);
+                }
+            );
     }
 
 }
