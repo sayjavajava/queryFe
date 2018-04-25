@@ -35,6 +35,27 @@ var CustomOption_1 = require("./configuration/CustomOption");
 var doctor_dashboard_component_1 = require("./components/dashboard/doctor/doctor-dashboard.component");
 var http_1 = require("@angular/common/http");
 var user_shared_service_1 = require("./services/user.shared.service");
+var setting_component_1 = require("./components/dashboard/setting/setting.component");
+var setting_navigation_component_1 = require("./components/dashboard/setting/setting-navigation.component");
+var staff_component_1 = require("./components/dashboard/setting/staff.component");
+var icd_component_1 = require("./components/dashboard/setting/icd.component");
+var department_component_1 = require("./components/dashboard/setting/department.component");
+var cashier_component_1 = require("./components/dashboard/setting/cashier.component");
+var medical_service_component_1 = require("./components/dashboard/setting/medical-service.component");
+var nurse_component_1 = require("./components/dashboard/setting/nurse.component");
+var receptionist_component_1 = require("./components/dashboard/setting/receptionist.component");
+var branch_component_1 = require("./components/dashboard/setting/branch.component");
+var addcashier_component_1 = require("./components/dashboard/setting/addcashier.component");
+var role_permissions_component_1 = require("./components/dashboard/setting/role-permissions.component");
+var adddoctor_component_1 = require("./components/dashboard/setting/adddoctor.component");
+var addnurse_component_1 = require("./components/dashboard/setting/addnurse.component");
+var addreceptionist_component_1 = require("./components/dashboard/setting/addreceptionist.component");
+var addbranch_component_1 = require("./components/dashboard/setting/addbranch.component");
+var material_1 = require("@angular/material");
+var notification_service_1 = require("./services/notification.service");
+var organization_component_1 = require("./components/dashboard/setting/organization.component");
+var addorganization_component_1 = require("./components/dashboard/setting/addorganization.component");
+var addstaff_component_1 = require("./components/dashboard/setting/addstaff.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -45,10 +66,10 @@ var AppModule = (function () {
             providers: [
                 // Services
                 requests_service_1.RequestsService,
+                notification_service_1.NotificationService,
                 ap_util_service_1.APUtilService,
                 app_config_1.AppConfig,
                 permissions_service_1.PermissionsService,
-                ng2_toastr_1.ToastsManager,
                 { provide: ng2_toastr_1.ToastOptions, useClass: CustomOption_1.CustomOption },
                 user_shared_service_1.UserSharedService
             ],
@@ -56,10 +77,12 @@ var AppModule = (function () {
                 // Modules
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
+                forms_1.ReactiveFormsModule,
                 app_routes_1.routes,
                 animations_1.BrowserAnimationsModule,
-                ng2_toastr_1.ToastModule.forRoot(),
-                http_1.HttpClientModule
+                material_1.MatButtonModule,
+                http_1.HttpClientModule,
+                material_1.MatSnackBarModule,
             ],
             declarations: [
                 // App Components
@@ -74,6 +97,26 @@ var AppModule = (function () {
                 footer_component_1.FooterComponent,
                 content_component_1.ContentComponent,
                 not_found_404_component_1.NotFound404Component,
+                //Setting Components
+                setting_component_1.SettingComponent,
+                setting_navigation_component_1.SettingNavigationComponent,
+                staff_component_1.StaffComponent,
+                icd_component_1.ICDComponent,
+                department_component_1.DepartmentComponent,
+                cashier_component_1.CashierComponent,
+                medical_service_component_1.MedicalServiceComponent,
+                nurse_component_1.NurseComponent,
+                receptionist_component_1.ReceptionistComponent,
+                branch_component_1.BranchComponent,
+                addcashier_component_1.AddCashierComponent,
+                role_permissions_component_1.RolePermissionsComponent,
+                adddoctor_component_1.AdddoctorComponent,
+                addnurse_component_1.AddNurseComponent,
+                addreceptionist_component_1.AddReceptionistComponent,
+                addbranch_component_1.AddBranchComponent,
+                organization_component_1.OrganizationComponent,
+                addorganization_component_1.AddOrganizationComponent,
+                addstaff_component_1.AddStaffComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         })

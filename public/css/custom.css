@@ -1,5 +1,5 @@
 /* here you can put your own css to customize and override the theme */
-p{margin:0; padding:0;}
+p, h3, h4{margin:0; padding:0;}
 .login-bg{ background:url(../images/bg/4.jpg); background-size:cover;}
 .login-footer{ width:100%;text-align: center; max-width:360px; margin:10px auto;}
 .login-footer p{ color:#fff;}
@@ -12,6 +12,7 @@ p{margin:0; padding:0;}
 .header-top-menu a{ font-size:14px; color:#fff;}
 .header-top-menu a:hover{color:#fff; text-decoration:none;}
 .side-bar-toggle-menu{margin: 70px 34px 0 0 !important;}
+.col-width25{width: 25% !important;}
 .flt-lft{float: left;}
 .hr{ width:100%; float:left; margin-bottom:10px;}
 .page-header.navbar .hor-menu .navbar-nav>li>a{ padding: 20px;}
@@ -27,7 +28,8 @@ p{margin:0; padding:0;}
 .pdngall3{padding: 3px !important;}
 .pdng-lr-5{padding-left:5px !important; padding-right:5px !important;}
 .no-padding-rgt{ padding-right:0 !important;}
-.control-label { line-height: 35px; padding-top:0px !important;}
+.control-label { line-height: 35px; padding-top:0px !important; font-size: 12px !important;}
+.label-control2 { line-height: 35px; padding-top:0px !important; font-size: 12px !important;}
 .patient-profile .control-label { line-height: 18px;}
 .bdr-btm{border-bottom: 1px solid #eee;}
 .mrgn-btm10{margin-bottom: 10px;}
@@ -80,7 +82,8 @@ p{margin:0; padding:0;}
 .tbl-brdr-radus{border-radius: 6px !important;}
 .tbl-pdng th, .tbl-pdng td{padding: 4px !important; font-size:12px !important;}
 .tbl-pdng th{font-weight: normal !important; color: #000 !important;}
-.off-wite-bg{background: #f6f6f6;}
+.off-wite-bg{background: #fafafa;}
+.heading{background:#000 !important;}
 .btn-grn{color: #fff; background-color: #36c6d3; border-color: #2bb8c4;}
 .bdr-top{border-top: 1px solid #ddd;}
 .bdr-btm{border-bottom: 1px solid #ddd;}
@@ -110,6 +113,103 @@ p{margin:0; padding:0;}
 .chckbox span{ margin-top:10px !important;}
 .checkbox-box{border:1px solid #c2cad8; background:#fff; padding:10px;}
 .checkbox-box address, .checkbox-box address label{ margin-bottom:2px !important;}
+.funkyradio div {
+  clear: both;
+  overflow: hidden;
+}
+
+.funkyradio label {
+  width: 100%;
+  border-radius: 5px !important;
+  border: 1px solid #D1D3D4;
+  font-weight: normal;
+  background: #f1f1f1;
+  color:#C2C2C2;
+}
+
+.funkyradio input[type="radio"]:empty,
+.funkyradio input[type="checkbox"]:empty {
+  display: none;
+}
+
+.funkyradio input[type="radio"]:empty ~ label,
+.funkyradio input[type="checkbox"]:empty ~ label {
+  position: relative;
+  line-height: 2.5em;
+  text-indent: 4.25em;
+  margin-top: 0.5em;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.funkyradio input[type="radio"]:checked ~ label:before, .funkyradio input[type="checkbox"]:checked ~ label:before {
+    content: '\2714';
+    text-indent: .9em;
+    color: #333;
+    background-color: #ccc;
+}
+.funkyradio input[type="radio"]:empty ~ label:before,
+.funkyradio input[type="checkbox"]:empty ~ label:before {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 3em;
+  background: #D1D3D4;
+}
+
+.funkyradio input[type="radio"]:hover:not(:checked) ~ label,
+.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
+  color: #777;
+}
+
+.funkyradio input[type="radio"]:hover:not(:checked) ~ label:before,
+.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
+  content: '\2714';
+  text-indent: .9em;
+  color: #C2C2C2;
+}
+
+.funkyradio input[type="radio"]:checked ~ label,
+.funkyradio input[type="checkbox"]:checked ~ label {
+  color: #000;
+}
+
+.funkyradio input[type="radio"]:checked ~ label:before,
+.funkyradio input[type="checkbox"]:checked ~ label:before {
+  text-indent: .9em;
+  color: #333;
+  background-color: #ccc;
+}
+
+.funkyradio input[type="radio"]:focus ~ label:before,
+.funkyradio input[type="checkbox"]:focus ~ label:before {
+  box-shadow: 0 0 0 3px #999;
+}
+
+.funkyradio-default input[type="radio"]:checked ~ label:before,
+.funkyradio-default input[type="checkbox"]:checked ~ label:before {
+  color: #333;
+  background-color: #ccc;
+}
+
+.funkyradio-primary input[type="radio"]:checked ~ label:before,
+.funkyradio-primary input[type="checkbox"]:checked ~ label:before {
+  content: '\2714';
+  color: #fff;
+  background-color: #337ab7;
+}
+
+.funkyradio-success input[type="radio"]:checked ~ label:before,
+.funkyradio-success input[type="checkbox"]:checked ~ label:before {
+  content: '\2714';
+  color: #fff;
+  background-color: #5cb85c;
+}
 @media (max-width:480px) {
 .small-menu-bck{ background:#5294d0;}
 .side-bar-toggle-menu {margin: 70px 6px 0 0 !important;}

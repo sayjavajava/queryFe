@@ -1,12 +1,10 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
 import 'rxjs/Rx';
 import {Router} from '@angular/router';
 
 @Injectable()
 export class APUtilService {
-    constructor(private http: Http,
-                private router: Router) {
+    constructor(private router: Router) {
     };
 
     tokenExpired(response: string) {
