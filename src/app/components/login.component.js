@@ -36,7 +36,7 @@ var LoginComponent = (function () {
                     window.localStorage.setItem(btoa('access_token'), btoa(response['access_token']));
                     window.localStorage.setItem(btoa('refresh_token'), btoa(response['refresh_token']));
                     window.localStorage.setItem(btoa('expire_in'), btoa(response['expires_in']));
-                    _this.requestsService.postRequest('/admin/auth/signIn', {
+                    _this.requestsService.postRequest('/user/auth/signIn', {
                         'userName': _this.username,
                         'password': _this.password,
                     })

@@ -40,7 +40,7 @@ export class LoginComponent {
                             window.localStorage.setItem(btoa('expire_in'), btoa(response['expires_in']));
 
                             this.requestsService.postRequest(
-                                '/admin/auth/signIn'
+                                '/user/auth/signIn'
                                 , {
                                     'userName': this.username,
                                     'password': this.password,
