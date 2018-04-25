@@ -24,8 +24,6 @@ var DashboardComponent = (function () {
         if (!window.localStorage.getItem(btoa('access_token'))) {
             this.router.navigate(['/login']);
         }
-        // alert('DashboardComponent ngOnInit');
-        // alert(window.localStorage.getItem(btoa('access_token')));
         this.titleService.setTitle('HIS | Dashboard');
     };
     DashboardComponent = __decorate([

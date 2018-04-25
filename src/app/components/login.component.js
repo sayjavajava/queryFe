@@ -20,52 +20,64 @@ var LoginComponent = (function () {
         this.sharedService = sharedService;
     }
     ;
+    LoginComponent.prototype.ngOnInit = function () {
+    };
     LoginComponent.prototype.login = function (form) {
         var _this = this;
-        this.requestsService.postRequestOauth2Token('/oauth/token', {
-            'userName': this.username,
-            'password': this.password,
-            'grantType': 'password',
-        })
-            .subscribe(function (response) {
-            if (response['token_type'] === 'bearer') {
-                window.localStorage.setItem(btoa('access_token'), btoa(response['access_token']));
-                window.localStorage.setItem(btoa('refresh_token'), btoa(response['refresh_token']));
-                window.localStorage.setItem(btoa('expire_in'), btoa(response['expires_in']));
-                _this.requestsService.postRequest('/admin/auth/signIn', {
-                    'userName': _this.username,
-                    'password': _this.password,
-                })
-                    .subscribe(function (response) {
-                    if (response['responseCode'] === 'ADM_AUTH_SUC_01') {
-                        _this.sharedService.firstName = response['responseData'].firstName;
-                        _this.sharedService.lastName = response['responseData'].lastName;
-                        _this.sharedService.profileImg = response['responseData'].profileImg;
-                        _this.sharedService.role = response['responseData'].role;
-                        _this.router.navigate(['/dashboard']);
-                    }
-                    else {
-                        _this.router.navigate(['/login']);
-                        window.localStorage.removeItem(atob('access_token'));
-                        window.localStorage.removeItem(atob('refresh_token'));
-                        window.localStorage.removeItem(atob('expire_in'));
-                        _this.error = response['responseMessage'];
-                    }
-                }, function (error) {
-                    console.log(error.json());
-                    _this.error = error.json()['responseMessage'];
-                });
-            }
-            else {
-                _this.error = response['responseMessage'];
-                window.localStorage.removeItem(atob('access_token'));
-                window.localStorage.removeItem(atob('refresh_token'));
-                window.localStorage.removeItem(atob('expire_in'));
-            }
-        });
+        if (form.valid) {
+            this.requestsService.postRequestOauth2Token('/oauth/token', {
+                'userName': this.username,
+                'password': this.password,
+                'grantType': 'password',
+            })
+                .subscribe(function (response) {
+                console.log(response);
+                if (response['token_type'] === 'bearer') {
+                    window.localStorage.setItem(btoa('access_token'), btoa(response['access_token']));
+                    window.localStorage.setItem(btoa('refresh_token'), btoa(response['refresh_token']));
+                    window.localStorage.setItem(btoa('expire_in'), btoa(response['expires_in']));
+                    _this.requestsService.postRequest('/admin/auth/signIn', {
+                        'userName': _this.username,
+                        'password': _this.password,
+                    })
+                        .subscribe(function (response) {
+                        if (response['responseCode'] === 'ADM_AUTH_SUC_01') {
+                            _this.sharedService.firstName = response['responseData'].firstName;
+                            _this.sharedService.lastName = response['responseData'].lastName;
+                            _this.router.navigate(['/dashboard']);
+                        }
+                        else {
+                            _this.router.navigate(['/login']);
+                            window.localStorage.removeItem(atob('access_token'));
+                            window.localStorage.removeItem(atob('refresh_token'));
+                            window.localStorage.removeItem(atob('expire_in'));
+                            _this.error = response['responseMessage'];
+                        }
+                    }, function (error) {
+                        //console.log(error.json());
+                        _this.error = error.error.error_description;
+                    });
+                }
+                else {
+                    _this.error = response['responseMessage'];
+                    window.localStorage.removeItem(atob('access_token'));
+                    window.localStorage.removeItem(atob('refresh_token'));
+                    window.localStorage.removeItem(atob('expire_in'));
+                }
+            }, function (error) {
+                //console.log(error);
+                _this.error = error.error.error_description;
+            });
+        }
+        else {
+            this.error = 'Fields are required.';
+        }
     };
     LoginComponent.prototype.forgotPassword = function () {
         this.router.navigate(['/forgotPassword']);
+    };
+    LoginComponent.prototype.hideErrorMessage = function () {
+        this.error = null;
     };
     LoginComponent = __decorate([
         core_1.Component({

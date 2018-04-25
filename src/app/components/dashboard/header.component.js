@@ -12,40 +12,36 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var requests_service_1 = require("../../services/requests.service");
 var router_1 = require("@angular/router");
-var user_shared_service_1 = require("../../services/user.shared.service");
 var HeaderComponent = (function () {
-    function HeaderComponent(requestsService, router, userSharedService) {
+    function HeaderComponent(requestsService, router) {
         this.requestsService = requestsService;
         this.router = router;
-        this.userSharedService = userSharedService;
     }
     HeaderComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        if (window.localStorage.getItem(btoa('access_token'))) {
-            this.firstName = this.userSharedService.firstName;
-            this.lastName = this.userSharedService.lastName;
-            this.profileImg = this.userSharedService.profileImg;
-            this.role = this.userSharedService.role;
-            this.requestsService.getRequest('/user/loggedInUser')
-                .subscribe(function (response) {
-                if (response['responseCode'] === 'ADM_SUC_01') {
-                    _this.userSharedService.firstName = response['responseData'].firstName;
-                    _this.userSharedService.lastName = response['responseData'].lastName;
-                    _this.userSharedService.profileImg = response['responseData'].profileImg;
-                    _this.userSharedService.role = response['responseData'].role;
-                    _this.firstName = _this.userSharedService.firstName;
-                    _this.lastName = _this.userSharedService.lastName;
-                    _this.profileImg = _this.userSharedService.profileImg;
-                    _this.role = _this.userSharedService.role;
-                }
-            }, function (error) {
-                // this.apUtilServer.tokenExpired(error.json()['error']);
-                console.log(error.json());
-            });
-        }
-        else {
-            this.router.navigate(['/login']);
-        }
+        /*  if (window.localStorage.getItem('access_token')) {
+              this.requestsService.getRequest(
+                  '/admin/loggedIn'
+                  , {})
+                  .subscribe(
+                      (response: Response) => {
+                          if (response['responseCode'] === 'ADM_SUC_08') {
+                              this.userSharedService.firstName = response['responseData'].firstName;
+                              this.userSharedService.lastName = response['responseData'].lastName;
+                              this.userSharedService.profileImg = response['responseData'].profileImg;
+                              this.userSharedService.userDesignation = response['responseData'].role;
+  
+                              this.firstName = this.userSharedService.firstName;
+                              this.lastName = this.userSharedService.lastName;
+                              this.profileImg = this.userSharedService.profileImg;
+                              this.userDesignation = this.userSharedService.userDesignation;
+                          }
+                      },
+                      (error: any) => {
+                          this.apUtilServer.tokenExpired(error.json()['error']);
+                          //console.log(error.json())
+                      }
+                  );
+          }*/
     };
     HeaderComponent.prototype.logout = function () {
     };
@@ -55,8 +51,7 @@ var HeaderComponent = (function () {
             templateUrl: '../../templates/dashboard/header.template.html',
         }),
         __metadata("design:paramtypes", [requests_service_1.RequestsService,
-            router_1.Router,
-            user_shared_service_1.UserSharedService])
+            router_1.Router])
     ], HeaderComponent);
     return HeaderComponent;
 }());

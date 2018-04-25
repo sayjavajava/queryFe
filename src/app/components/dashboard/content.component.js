@@ -13,52 +13,17 @@ var core_1 = require("@angular/core");
 var requests_service_1 = require("../../services/requests.service");
 var router_1 = require("@angular/router");
 var permissions_service_1 = require("../../services/permissions.service");
-var user_shared_service_1 = require("../../services/user.shared.service");
 var ContentComponent = (function () {
-    function ContentComponent(requestsService, router, permissionsService, userSharedService) {
+    function ContentComponent(requestsService, router, permissionsService) {
         this.requestsService = requestsService;
         this.router = router;
         this.permissionsService = permissionsService;
-        this.userSharedService = userSharedService;
     }
     ;
     ContentComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        if (window.localStorage.getItem(btoa('access_token'))) {
-            this.requestsService.getRequest('/user/loggedInUser')
-                .subscribe(function (response) {
-                if (response['responseCode'] === 'ADM_SUC_01') {
-                    _this.userSharedService.firstName = response['responseData'].firstName;
-                    _this.userSharedService.lastName = response['responseData'].lastName;
-                    _this.userSharedService.profileImg = response['responseData'].profileImg;
-                    _this.userSharedService.role = response['responseData'].role;
-                    _this.firstName = _this.userSharedService.firstName;
-                    _this.lastName = _this.userSharedService.lastName;
-                    _this.profileImg = _this.userSharedService.profileImg;
-                    _this.role = _this.userSharedService.role;
-                }
-            }, function (error) {
-                // this.apUtilServer.tokenExpired(error.json()['error']);
-                console.log(error.json());
-            });
-        }
-        else {
-            this.router.navigate(['/login']);
-        }
     };
     ContentComponent.prototype.logout = function () {
-        var _this = this;
-        this.requestsService.getRequest('/user/logout')
-            .subscribe(function (response) {
-            if (response['responseCode'] === 'USR_AUTH_SUC_02') {
-                window.localStorage.removeItem(btoa('access_token'));
-                window.localStorage.removeItem(btoa('refresh_token'));
-                window.localStorage.removeItem(btoa('expire_in'));
-                _this.router.navigate(['/login']);
-            }
-        }, function (error) {
-            console.log(error.json);
-        });
+        //alert('logout');
     };
     ContentComponent = __decorate([
         core_1.Component({
@@ -68,8 +33,7 @@ var ContentComponent = (function () {
         }),
         __metadata("design:paramtypes", [requests_service_1.RequestsService,
             router_1.Router,
-            permissions_service_1.PermissionsService,
-            user_shared_service_1.UserSharedService])
+            permissions_service_1.PermissionsService])
     ], ContentComponent);
     return ContentComponent;
 }());
