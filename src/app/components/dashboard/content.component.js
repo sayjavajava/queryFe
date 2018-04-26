@@ -14,12 +14,14 @@ var requests_service_1 = require("../../services/requests.service");
 var router_1 = require("@angular/router");
 var permissions_service_1 = require("../../services/permissions.service");
 var user_shared_service_1 = require("../../services/user.shared.service");
+var his_util_service_1 = require("../../services/his-util.service");
 var ContentComponent = (function () {
-    function ContentComponent(requestsService, router, permissionsService, userSharedService) {
+    function ContentComponent(requestsService, router, permissionsService, userSharedService, HISUtilService) {
         this.requestsService = requestsService;
         this.router = router;
         this.permissionsService = permissionsService;
         this.userSharedService = userSharedService;
+        this.HISUtilService = HISUtilService;
     }
     ;
     ContentComponent.prototype.ngOnInit = function () {
@@ -39,7 +41,8 @@ var ContentComponent = (function () {
                 }
             }, function (error) {
                 // this.apUtilServer.tokenExpired(error.json()['error']);
-                console.log(error.json());
+                //console.log(error.json())
+                _this.HISUtilService.tokenExpired(error.error.error);
             });
         }
         else {
@@ -57,7 +60,8 @@ var ContentComponent = (function () {
                 _this.router.navigate(['/login']);
             }
         }, function (error) {
-            console.log(error.json);
+            //console.log(error.json);
+            _this.HISUtilService.tokenExpired(error.error.error);
         });
     };
     ContentComponent = __decorate([
@@ -69,7 +73,8 @@ var ContentComponent = (function () {
         __metadata("design:paramtypes", [requests_service_1.RequestsService,
             router_1.Router,
             permissions_service_1.PermissionsService,
-            user_shared_service_1.UserSharedService])
+            user_shared_service_1.UserSharedService,
+            his_util_service_1.HISUtilService])
     ], ContentComponent);
     return ContentComponent;
 }());

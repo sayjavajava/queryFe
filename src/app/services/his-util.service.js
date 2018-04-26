@@ -10,20 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ICDComponent = (function () {
-    function ICDComponent() {
+require("rxjs/Rx");
+var router_1 = require("@angular/router");
+var HISUtilService = (function () {
+    function HISUtilService(router) {
+        this.router = router;
     }
-    ICDComponent.prototype.ngOnInit = function () {
-        document.title = 'HIS | Manage ICD';
+    ;
+    HISUtilService.prototype.tokenExpired = function (response) {
+        if (response === 'invalid_token') {
+            window.localStorage.removeItem(btoa('access_token'));
+            window.localStorage.removeItem(btoa('refresh_token'));
+            window.localStorage.removeItem(btoa('expire_in'));
+            this.router.navigate(['/login']);
+        }
     };
-    ICDComponent = __decorate([
-        core_1.Component({
-            selector: 'icd-component',
-            templateUrl: '../../../templates/dashboard/setting/icd.template.html',
-        }),
-        __metadata("design:paramtypes", [])
-    ], ICDComponent);
-    return ICDComponent;
+    HISUtilService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [router_1.Router])
+    ], HISUtilService);
+    return HISUtilService;
 }());
-exports.ICDComponent = ICDComponent;
-//# sourceMappingURL=icd.component.js.map
+exports.HISUtilService = HISUtilService;
+//# sourceMappingURL=his-util.service.js.map

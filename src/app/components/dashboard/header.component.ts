@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {RequestsService} from '../../services/requests.service';
 import {Router} from '@angular/router';
-import {UserSharedService} from "../../services/user.shared.service";
+import {UserSharedService} from '../../services/user.shared.service';
+import {HISUtilService} from '../../services/his-util.service';
 
 @Component({
     selector: 'header-component',
@@ -17,7 +18,8 @@ export class HeaderComponent implements OnInit {
 
     constructor(private requestsService: RequestsService,
                 private router: Router,
-                private userSharedService: UserSharedService) {
+                private userSharedService: UserSharedService,
+                private HISUtilService: HISUtilService) {
     }
 
     ngOnInit() {
@@ -44,8 +46,8 @@ export class HeaderComponent implements OnInit {
                         }
                     },
                     (error: any) => {
-                        // this.apUtilServer.tokenExpired(error.json()['error']);
-                        console.log(error.json())
+                        //console.log(error.json())
+                        this.HISUtilService.tokenExpired(error.error.error);
                     }
                 );
         } else {
@@ -66,7 +68,8 @@ export class HeaderComponent implements OnInit {
                     }
                 },
                 (error: any) => {
-                    console.log(error.json);
+                    //console.log(error.json);
+                    this.HISUtilService.tokenExpired(error.error.error);
                 }
             );
     }

@@ -26,7 +26,7 @@ var not_found_404_component_1 = require("./components/errors/not-found-404.compo
 var app_routes_1 = require("./app.routes");
 // Services
 var requests_service_1 = require("./services/requests.service");
-var ap_util_service_1 = require("./services/ap.util.service");
+var his_util_service_1 = require("./services/his-util.service");
 var permissions_service_1 = require("./services/permissions.service");
 var app_config_1 = require("./configuration/app.config");
 var animations_1 = require("@angular/platform-browser/animations");
@@ -67,7 +67,7 @@ var AppModule = (function () {
                 // Services
                 requests_service_1.RequestsService,
                 notification_service_1.NotificationService,
-                ap_util_service_1.APUtilService,
+                his_util_service_1.HISUtilService,
                 app_config_1.AppConfig,
                 permissions_service_1.PermissionsService,
                 { provide: ng2_toastr_1.ToastOptions, useClass: CustomOption_1.CustomOption },

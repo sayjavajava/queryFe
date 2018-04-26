@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {PermissionsService} from '../../services/permissions.service';
 import {UserSharedService} from "../../services/user.shared.service";
 import {Alert} from "selenium-webdriver";
+import {HISUtilService} from '../../services/his-util.service';
 
 @Component({
     selector: 'content-component',
@@ -20,7 +21,8 @@ export class ContentComponent implements OnInit {
     constructor(private requestsService: RequestsService,
                 private router: Router,
                 private permissionsService: PermissionsService,
-                private userSharedService: UserSharedService) {
+                private userSharedService: UserSharedService,
+                private HISUtilService: HISUtilService) {
     };
 
     ngOnInit() {
@@ -44,7 +46,8 @@ export class ContentComponent implements OnInit {
                     },
                     (error: any) => {
                         // this.apUtilServer.tokenExpired(error.json()['error']);
-                        console.log(error.json())
+                        //console.log(error.json())
+                        this.HISUtilService.tokenExpired(error.error.error);
                     }
                 );
         } else {
@@ -67,7 +70,8 @@ export class ContentComponent implements OnInit {
                     }
                 },
                 (error: any) => {
-                    console.log(error.json);
+                    //console.log(error.json);
+                    this.HISUtilService.tokenExpired(error.error.error);
                 }
             );
     }

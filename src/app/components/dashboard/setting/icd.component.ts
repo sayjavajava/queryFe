@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'icd-component',
-  templateUrl: '../../../templates/dashboard/setting/icd.template.html',
+    selector: 'icd-component',
+    templateUrl: '../../../templates/dashboard/setting/icd.template.html',
 })
 export class ICDComponent implements OnInit {
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        document.title = 'HIS | Manage ICD';
+    }
 
 }

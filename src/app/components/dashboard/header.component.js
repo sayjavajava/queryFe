@@ -13,11 +13,13 @@ var core_1 = require("@angular/core");
 var requests_service_1 = require("../../services/requests.service");
 var router_1 = require("@angular/router");
 var user_shared_service_1 = require("../../services/user.shared.service");
+var his_util_service_1 = require("../../services/his-util.service");
 var HeaderComponent = (function () {
-    function HeaderComponent(requestsService, router, userSharedService) {
+    function HeaderComponent(requestsService, router, userSharedService, HISUtilService) {
         this.requestsService = requestsService;
         this.router = router;
         this.userSharedService = userSharedService;
+        this.HISUtilService = HISUtilService;
     }
     HeaderComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -39,8 +41,8 @@ var HeaderComponent = (function () {
                     _this.role = _this.userSharedService.role;
                 }
             }, function (error) {
-                // this.apUtilServer.tokenExpired(error.json()['error']);
-                console.log(error.json());
+                //console.log(error.json())
+                _this.HISUtilService.tokenExpired(error.error.error);
             });
         }
         else {
@@ -58,7 +60,8 @@ var HeaderComponent = (function () {
                 _this.router.navigate(['/login']);
             }
         }, function (error) {
-            console.log(error.json);
+            //console.log(error.json);
+            _this.HISUtilService.tokenExpired(error.error.error);
         });
     };
     HeaderComponent = __decorate([
@@ -68,7 +71,8 @@ var HeaderComponent = (function () {
         }),
         __metadata("design:paramtypes", [requests_service_1.RequestsService,
             router_1.Router,
-            user_shared_service_1.UserSharedService])
+            user_shared_service_1.UserSharedService,
+            his_util_service_1.HISUtilService])
     ], HeaderComponent);
     return HeaderComponent;
 }());

@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 import {RequestsService} from '../services/requests.service';
 import {UserSharedService} from '../services/user.shared.service';
+import {HISUtilService} from '../services/his-util.service';
 
 @Component({
     selector: 'login-component',
@@ -16,7 +17,8 @@ export class LoginComponent {
 
     constructor(private requestsService: RequestsService,
                 private router: Router,
-                private sharedService: UserSharedService) {
+                private sharedService: UserSharedService,
+                private HISUtilService: HISUtilService) {
     };
 
     ngOnInit() {
@@ -65,6 +67,8 @@ export class LoginComponent {
                                     (error: any) => {
                                         //console.log(error.json());
                                         this.error = error.error.error_description;
+                                        this.HISUtilService.tokenExpired(error.error);
+
                                     });
                         } else {
                             this.error = response['responseMessage'];
@@ -75,6 +79,7 @@ export class LoginComponent {
                     }, (error: any) => {
                         //console.log(error);
                         this.error = error.error.error_description;
+                        this.HISUtilService.tokenExpired(error.error);
                     });
         } else {
             this.error = 'Fields are required.'

@@ -13,11 +13,13 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var requests_service_1 = require("../services/requests.service");
 var user_shared_service_1 = require("../services/user.shared.service");
+var his_util_service_1 = require("../services/his-util.service");
 var LoginComponent = (function () {
-    function LoginComponent(requestsService, router, sharedService) {
+    function LoginComponent(requestsService, router, sharedService, HISUtilService) {
         this.requestsService = requestsService;
         this.router = router;
         this.sharedService = sharedService;
+        this.HISUtilService = HISUtilService;
     }
     ;
     LoginComponent.prototype.ngOnInit = function () {
@@ -58,6 +60,7 @@ var LoginComponent = (function () {
                     }, function (error) {
                         //console.log(error.json());
                         _this.error = error.error.error_description;
+                        _this.HISUtilService.tokenExpired(error.error);
                     });
                 }
                 else {
@@ -69,6 +72,7 @@ var LoginComponent = (function () {
             }, function (error) {
                 //console.log(error);
                 _this.error = error.error.error_description;
+                _this.HISUtilService.tokenExpired(error.error);
             });
         }
         else {
@@ -88,7 +92,8 @@ var LoginComponent = (function () {
         }),
         __metadata("design:paramtypes", [requests_service_1.RequestsService,
             router_1.Router,
-            user_shared_service_1.UserSharedService])
+            user_shared_service_1.UserSharedService,
+            his_util_service_1.HISUtilService])
     ], LoginComponent);
     return LoginComponent;
 }());

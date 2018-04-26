@@ -18,12 +18,12 @@ import {NotFound404Component} from './components/errors/not-found-404.component'
 import {routes} from './app.routes';
 // Services
 import {RequestsService} from './services/requests.service';
-import {APUtilService} from './services/ap.util.service';
+import {HISUtilService} from './services/his-util.service';
 import {PermissionsService} from './services/permissions.service';
 
 import {AppConfig} from './configuration/app.config';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ToastOptions, ToastsManager} from 'ng2-toastr';
+import {ToastOptions} from 'ng2-toastr';
 import {CustomOption} from './configuration/CustomOption';
 import {DoctorDashboardComponent} from './components/dashboard/doctor/doctor-dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -48,7 +48,6 @@ import {MatButtonModule, MatSnackBarModule} from '@angular/material';
 import {NotificationService} from './services/notification.service';
 import {OrganizationComponent} from './components/dashboard/setting/organization.component';
 import {AddOrganizationComponent} from './components/dashboard/setting/addorganization.component';
-import {ReactiveErrors} from '@angular/forms/src/directives/reactive_errors';
 import {AddStaffComponent} from './components/dashboard/setting/addstaff.component';
 
 
@@ -57,7 +56,7 @@ import {AddStaffComponent} from './components/dashboard/setting/addstaff.compone
         // Services
         RequestsService,
         NotificationService,
-        APUtilService,
+        HISUtilService,
         AppConfig,
         PermissionsService,
         {provide: ToastOptions, useClass: CustomOption},
