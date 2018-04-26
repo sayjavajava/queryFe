@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {NotificationService} from '../../../services/notification.service';
 
 @Component({
     selector: 'icd-component',
@@ -6,11 +7,16 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ICDComponent implements OnInit {
 
-    constructor() {
+    constructor(private notificationService: NotificationService) {
+
     }
 
     ngOnInit() {
         document.title = 'HIS | Manage ICD';
+    }
+
+    onAddICDPopupLoad(){
+        this.notificationService.success('ICD', 'Popup loaded.')
     }
 
 }

@@ -1,6 +1,4 @@
 import {Injectable} from '@angular/core';
-import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Subject} from 'rxjs/Subject';
 
 declare var toastr: any;
@@ -13,26 +11,26 @@ export class NotificationService {
     showduration: number = 5000;
 
     constructor() {
-        this.Settings();
+        this.settings();
     }
 
-    public Success(title: string, msg?: any) {
+    public success(title: string, msg?: any) {
         toastr.success(title, msg);
     }
 
-    public Error(title: string, msg?: any) {
+    public error(title: string, msg?: any) {
         toastr.error(title, msg);
     }
 
-    public Warn(title: string) {
+    public warn(title: string) {
         toastr.warning(title);
     }
 
-    public Clear() {
+    public clear() {
         toastr.clear();
     }
 
-    public Settings() {
+    public settings() {
 
         toastr.options = {
             'closeButton': true,

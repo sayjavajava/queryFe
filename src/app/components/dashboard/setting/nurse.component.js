@@ -17,10 +17,6 @@ var NurseComponent = (function () {
     }
     NurseComponent.prototype.ngOnInit = function () {
     };
-    NurseComponent.prototype.showToaster = function () {
-        this.notificationservice.Success("I am nurse", 'oops');
-        // this.notificationservice.toastsubject.next(" Hi I'm Nurse");
-    };
     NurseComponent = __decorate([
         core_1.Component({
             selector: 'nurse-component',

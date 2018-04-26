@@ -10,18 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var notification_service_1 = require("../../../services/notification.service");
 var ICDComponent = (function () {
-    function ICDComponent() {
+    function ICDComponent(notificationService) {
+        this.notificationService = notificationService;
     }
     ICDComponent.prototype.ngOnInit = function () {
         document.title = 'HIS | Manage ICD';
+    };
+    ICDComponent.prototype.onAddICDPopupLoad = function () {
+        this.notificationService.success('ICD', 'Popup loaded.');
     };
     ICDComponent = __decorate([
         core_1.Component({
             selector: 'icd-component',
             templateUrl: '../../../templates/dashboard/setting/icd.template.html',
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [notification_service_1.NotificationService])
     ], ICDComponent);
     return ICDComponent;
 }());

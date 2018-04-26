@@ -17,10 +17,6 @@ var RolePermissionsComponent = (function () {
     }
     RolePermissionsComponent.prototype.ngOnInit = function () {
     };
-    RolePermissionsComponent.prototype.Success = function () { this.notificationservice.Success('succeeded', 'Done'); };
-    RolePermissionsComponent.prototype.Warn = function () { this.notificationservice.Warn('i am goging to die !'); };
-    RolePermissionsComponent.prototype.Error = function () { this.notificationservice.Error('errors are injurious to health ', 'try again'); };
-    RolePermissionsComponent.prototype.Clear = function () { this.notificationservice.Clear(); };
     RolePermissionsComponent = __decorate([
         core_1.Component({
             selector: 'rolepermissions-component',

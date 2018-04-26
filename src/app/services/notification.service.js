@@ -15,21 +15,21 @@ var NotificationService = (function () {
     function NotificationService() {
         this.toastsubject = new Subject_1.Subject();
         this.showduration = 5000;
-        this.Settings();
+        this.settings();
     }
-    NotificationService.prototype.Success = function (title, msg) {
+    NotificationService.prototype.success = function (title, msg) {
         toastr.success(title, msg);
     };
-    NotificationService.prototype.Error = function (title, msg) {
+    NotificationService.prototype.error = function (title, msg) {
         toastr.error(title, msg);
     };
-    NotificationService.prototype.Warn = function (title) {
+    NotificationService.prototype.warn = function (title) {
         toastr.warning(title);
     };
-    NotificationService.prototype.Clear = function () {
+    NotificationService.prototype.clear = function () {
         toastr.clear();
     };
-    NotificationService.prototype.Settings = function () {
+    NotificationService.prototype.settings = function () {
         toastr.options = {
             'closeButton': true,
             'debug': false,
