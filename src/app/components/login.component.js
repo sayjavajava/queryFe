@@ -31,7 +31,7 @@ var LoginComponent = (function () {
                 'grantType': 'password',
             })
                 .subscribe(function (response) {
-                console.log(response);
+                //console.log(response);
                 if (response['token_type'] === 'bearer') {
                     window.localStorage.setItem(btoa('access_token'), btoa(response['access_token']));
                     window.localStorage.setItem(btoa('refresh_token'), btoa(response['refresh_token']));

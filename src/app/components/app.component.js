@@ -43,10 +43,9 @@ var AppComponent = (function () {
             templateUrl: '../templates/app.template.html',
             styleUrls: ['../styles/app.style.css']
         }),
-        __metadata("design:paramtypes", [notification_service_1.NotificationService, typeof (_a = typeof material_1.MatSnackBar !== "undefined" && material_1.MatSnackBar) === "function" && _a || Object])
+        __metadata("design:paramtypes", [notification_service_1.NotificationService, material_1.MatSnackBar])
     ], AppComponent);
     return AppComponent;
-    var _a;
 }());
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
