@@ -7,7 +7,7 @@ import {HISUtilService} from '../services/his-util.service';
 
 @Component({
     selector: 'login-component',
-    templateUrl: '../templates/login.template.html'
+    templateUrl: '../templates/login.template.html',
 })
 export class LoginComponent {
     username: string;
