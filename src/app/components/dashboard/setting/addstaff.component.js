@@ -53,7 +53,6 @@ var AddStaffComponent = (function () {
         this.services = true;
     };
     AddStaffComponent.prototype.nursePermissions = function () {
-        this.services = true;
         this.department = true;
         this.managepatientinvoices = true;
         this.managepatientrecord = true;

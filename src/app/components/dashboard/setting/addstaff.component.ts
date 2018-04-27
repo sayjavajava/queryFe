@@ -7,8 +7,6 @@ import {Router} from '@angular/router';
 })
 export class AddStaffComponent implements OnInit {
 
-
-
     allowdiscount:boolean =true;
     department:boolean;
     checkUpInterval:boolean;
@@ -66,7 +64,7 @@ private doctorPermissions(){
 
     }
     private nursePermissions(){
-        this.services=true;
+
         this.department=true;
         this.managepatientinvoices=true;
         this.managepatientrecord=true;
