@@ -3,6 +3,7 @@ import {RequestsService} from '../../services/requests.service';
 import {Router} from '@angular/router';
 import {UserSharedService} from '../../services/user.shared.service';
 import {HISUtilService} from '../../services/his-util.service';
+import {PermissionsService} from "../../services/permissions.service";
 
 @Component({
     selector: 'header-component',
@@ -19,7 +20,8 @@ export class HeaderComponent implements OnInit {
     constructor(private requestsService: RequestsService,
                 private router: Router,
                 private userSharedService: UserSharedService,
-                private HISUtilService: HISUtilService) {
+                private HISUtilService: HISUtilService,
+                private permissionService: PermissionsService) {
     }
 
     ngOnInit() {
@@ -38,6 +40,7 @@ export class HeaderComponent implements OnInit {
                             this.userSharedService.lastName = response['responseData'].lastName;
                             this.userSharedService.profileImg = response['responseData'].profileImg;
                             this.userSharedService.role = response['responseData'].role;
+                            this.permissionService.loadPermissions(response['responseData'].permissions);
 
                             this.firstName = this.userSharedService.firstName;
                             this.lastName = this.userSharedService.lastName;
@@ -64,6 +67,8 @@ export class HeaderComponent implements OnInit {
                         window.localStorage.removeItem(btoa('access_token'));
                         window.localStorage.removeItem(btoa('refresh_token'));
                         window.localStorage.removeItem(btoa('expire_in'));
+                        window.localStorage.removeItem(atob('permissions'));
+
                         this.router.navigate(['/login']);
                     }
                 },

@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {RequestsService} from '../services/requests.service';
 import {UserSharedService} from '../services/user.shared.service';
 import {HISUtilService} from '../services/his-util.service';
+import {PermissionsService} from "../services/permissions.service";
 
 @Component({
     selector: 'login-component',
@@ -18,7 +19,8 @@ export class LoginComponent {
     constructor(private requestsService: RequestsService,
                 private router: Router,
                 private sharedService: UserSharedService,
-                private HISUtilService: HISUtilService) {
+                private HISUtilService: HISUtilService,
+                private permissionService: PermissionsService) {
     };
 
     ngOnInit() {
@@ -54,6 +56,7 @@ export class LoginComponent {
                                             this.sharedService.lastName = response['responseData'].lastName;
                                             this.sharedService.profileImg = response['responseData'].profileImg;
                                             this.sharedService.role = response['responseData'].role;
+                                            this.permissionService.loadPermissions(response['responseData'].permissions);
 
                                             this.router.navigate(['/dashboard']);
                                         } else {
@@ -61,6 +64,8 @@ export class LoginComponent {
                                             window.localStorage.removeItem(atob('access_token'));
                                             window.localStorage.removeItem(atob('refresh_token'));
                                             window.localStorage.removeItem(atob('expire_in'));
+                                            window.localStorage.removeItem(atob('permissions'));
+
                                             this.error = response['responseMessage'];
                                         }
                                     },
@@ -75,6 +80,8 @@ export class LoginComponent {
                             window.localStorage.removeItem(atob('access_token'));
                             window.localStorage.removeItem(atob('refresh_token'));
                             window.localStorage.removeItem(atob('expire_in'));
+                            window.localStorage.removeItem(atob('permissions'));
+
                         }
                     }, (error: any) => {
                         //console.log(error);
