@@ -64,7 +64,7 @@ private doctorPermissions(){
 
     }
     private nursePermissions(){
-        this.services=true;
+
         this.department=true;
         this.managepatientinvoices=true;
         this.managepatientrecord=true;

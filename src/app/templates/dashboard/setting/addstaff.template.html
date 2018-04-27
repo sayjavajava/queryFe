@@ -36,6 +36,14 @@
                                     <div class="col-md-8">
                                         <input name="email" type="text" value="Mehmood" class="form-control"></div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Username
+                                        <span class="required" aria-required="true"> * </span>
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input name="username" type="text" value="aksjdh" class="form-control"></div>
+                                </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-4">Primary Branch
                                         <span class="required" aria-required="true"> * </span>
@@ -133,13 +141,7 @@
 
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label col-md-4">Username
-                                        <span class="required" aria-required="true"> * </span>
-                                    </label>
-                                    <div class="col-md-8">
-                                        <input name="username" type="text" value="aksjdh" class="form-control"></div>
-                                </div>
+
                                 <div class="form-group">
                                     <label class="control-label col-md-4">Password
                                         <span class="required" aria-required="true"> * </span>
@@ -172,6 +174,77 @@
                                                class="form-control">
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-6">Send daily billing report?</label>
+                                    <div class="col-md-8 col-xs-6">
+                                        <label class="mt-checkbox mt-checkbox-outline chckbox">
+                                            <input type="checkbox" class=""><span></span></label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-6">Use Recept Dashboard?</label>
+                                    <div class="col-md-8 col-xs-6">
+                                        <label class="mt-checkbox mt-checkbox-outline chckbox">
+                                            <input type="checkbox"><span></span></label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-6">Other Doctor Dashboard?</label>
+                                    <div class="col-md-8 col-xs-6">
+                                        <label class="mt-checkbox mt-checkbox-outline chckbox">
+                                            <input type="checkbox"><span></span>
+                                            <select class="form-control" name="select">
+                                                <option value="">Select...</option>
+                                                <option value="Category 1">Doctor</option>
+                                                <option value="Category 2">Doctor</option>
+                                                <option value="Category 3">Doctor</option>
+                                                <option value="Category 4">Doctor</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-6">Account Expiry
+                                    </label>
+                                    <div class="col-md-8 col-xs-6">
+                                        <input type="text" value="1" name="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-6">Active
+                                    </label>
+                                    <div class="col-md-8 col-xs-6">
+                                        <label class="mt-checkbox mt-checkbox-outline chckbox">
+                                            <input type="checkbox"><span></span></label>
+                                    </div>
+                                </div>
+
+
+                                <div *ngIf="checkUpInterval" class="form-group">
+                                    <label class="control-label col-md-4">Checkup Interval:
+                                        <span class="required" aria-required="true"> * </span>
+                                    </label>
+                                    <div class="col-md-8">
+                                        <select class="form-control" name="select">
+                                            <option value="">30</option>
+                                            <option value="Category 1">40</option>
+                                            <option value="Category 2">50</option>
+                                            <option value="Category 3">60</option>
+                                            <option value="Category 4">70</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div *ngIf="services" class="form-group">
                                     <label class="control-label col-md-4">Services
                                         <span class="required" aria-required="true"> * </span>
@@ -231,17 +304,33 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
 
-                                <div *ngIf=" allowdiscount" class="form-group">
+                                <!--<div *ngIf="services" class="form-group">
+                                    <label class="control-label col-md-4">Services <span class="required" aria-required="true"> * </span> </label>
+                                    <div class="col-md-8"> <div class="input-group select2-bootstrap-prepend">
+                                        <select id="multi-prepend" class="form-control select2 select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true">
+                                            <option value="Consultation">Consultation</option>
+                                            <option value="Complimentary">Consultation - Complimentary</option>
+                                            <option value="Botox Axilla">Botox Axilla</option>
+                                            <option value="Botox Full Face">Botox Full Face</option>
+                                            <option value="Botox Upper Face">Botox Upper Face</option>
+                                            <option value="Gummy Smile">Gummy Smile</option>
+                                            <option value="Mesotherapy For Hair">Mesotherapy For Hair</option>
+                                            <option value="Tesoyal Kiss 1ml">Tesoyal Kiss 1ml</option>
+                                            <option value="Restylance Vital 1ml">Restylance Vital 1ml</option>
+                                            <option value="Restylane">Restylane Sub Lidocaine 2ml</option>
+                                        </select>
+                                        </div>
+                                     </div>
+                                </div>
+-->
+                                <div *ngIf="allowdiscount" class="form-group">
                                     <label class="control-label col-md-4">Allow Discount
                                     </label>
                                     <div class="col-md-8">
                                         <input name="email" type="text" value="15%" class="form-control"></div>
                                 </div>
+
 
                                 <div *ngIf="dutywithdoctor" class="form-group">
                                     <label class="control-label col-md-4">Duty with Doctor
@@ -282,20 +371,39 @@
                                     </div>
                                 </div>
 
-                                <div *ngIf="checkUpInterval" class="form-group">
-                                    <label class="control-label col-md-4">Checkup Interval:
-                                        <span class="required" aria-required="true"> * </span>
+
+                                <div *ngIf="dutytimmingshift2" class="form-group">
+                                    <label class="control-label col-md-4 col-xs-12"> Duty Timing (Shift 2):
                                     </label>
-                                    <div class="col-md-8">
-                                        <select class="form-control" name="select">
-                                            <option value="">30</option>
-                                            <option value="Category 1">40</option>
-                                            <option value="Category 2">50</option>
-                                            <option value="Category 3">60</option>
-                                            <option value="Category 4">70</option>
-                                        </select>
+                                    <div class="col-md-8  col-xs-12">
+                                        <div class="width6 pull-left no-padding"><label
+                                                class="mt-checkbox pdng-lft18 mt-checkbox-outline chckbox">
+                                            <input type="checkbox" class=""><span></span></label></div>
+                                        <div class="col-md-1 width40 pdng-lr-5 pull-left text-center label-control2">
+                                            From
+                                        </div>
+                                        <div class=" col-md-5 col-xs-5 pull-left pdng-lr-5">
+                                            <div class="input-icon">
+                                                <i class="fa fa-clock-o"></i>
+                                                <input type="text" class="form-control timepicker timepicker-default">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 width6 pull-left no-padding text-center label-control2">
+                                            To
+                                        </div>
+                                        <div class=" col-md-4 col-xs-4 no-padding pull-left">
+                                            <div class="input-icon">
+                                                <i class="fa fa-clock-o"></i>
+                                                <input type="text" class="form-control timepicker timepicker-default">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
                                 <div *ngIf="dutytimmingshift1" class="form-group">
                                     <label class="control-label col-md-4 col-xs-12"> Duty Timing (Shift 1):
                                         <span class="required" aria-required="true"> * </span>
@@ -324,33 +432,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div *ngIf="dutytimmingshift2" class="form-group">
-                                    <label class="control-label col-md-4 col-xs-12"> Duty Timing (Shift 2):
-                                    </label>
-                                    <div class="col-md-8  col-xs-12">
-                                        <div class="width6 pull-left no-padding"><label
-                                                class="mt-checkbox pdng-lft18 mt-checkbox-outline chckbox">
-                                            <input type="checkbox" class=""><span></span></label></div>
-                                        <div class="col-md-1 width40 pdng-lr-5 pull-left text-center label-control2">
-                                            From
-                                        </div>
-                                        <div class=" col-md-5 col-xs-5 pull-left pdng-lr-5">
-                                            <div class="input-icon">
-                                                <i class="fa fa-clock-o"></i>
-                                                <input type="text" class="form-control timepicker timepicker-default">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-1 width6 pull-left no-padding text-center label-control2">
-                                            To
-                                        </div>
-                                        <div class=" col-md-4 col-xs-4 no-padding pull-left">
-                                            <div class="input-icon">
-                                                <i class="fa fa-clock-o"></i>
-                                                <input type="text" class="form-control timepicker timepicker-default">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div *ngIf="vacation" class="form-group">
                                     <label class="control-label col-md-4 col-xs-12"> Vacation:
                                     </label>
@@ -429,60 +511,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label col-md-4 col-xs-6">Send daily billing report?</label>
-                                    <div class="col-md-8 col-xs-6">
-                                        <label class="mt-checkbox mt-checkbox-outline chckbox">
-                                            <input type="checkbox" class=""><span></span></label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-4 col-xs-6">Use Recept Dashboard?</label>
-                                    <div class="col-md-8 col-xs-6">
-                                        <label class="mt-checkbox mt-checkbox-outline chckbox">
-                                            <input type="checkbox"><span></span></label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-4 col-xs-6">Use Doctor Dashboard?</label>
-                                    <div class="col-md-8 col-xs-6">
-                                        <label class="mt-checkbox mt-checkbox-outline chckbox">
-                                            <input type="checkbox"><span></span></label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-4 col-xs-6">Other Doctor Dashboard?</label>
-                                    <div class="col-md-8 col-xs-6">
-                                        <label class="mt-checkbox mt-checkbox-outline chckbox">
-                                            <input type="checkbox"><span></span>
-                                            <select class="form-control" name="select">
-                                                <option value="">Select...</option>
-                                                <option value="Category 1">Doctor</option>
-                                                <option value="Category 2">Doctor</option>
-                                                <option value="Category 3">Doctor</option>
-                                                <option value="Category 4">Doctor</option>
-                                            </select>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-4 col-xs-6">Account Expiry
-                                    </label>
-                                    <div class="col-md-8 col-xs-6">
-                                        <input type="text" value="1" name="" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-4 col-xs-6">Active
-                                    </label>
-                                    <div class="col-md-8 col-xs-6">
-                                        <label class="mt-checkbox mt-checkbox-outline chckbox">
-                                            <input type="checkbox"><span></span></label>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="hr">
                             <div class="col-md-12 text-center">
