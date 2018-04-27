@@ -14,12 +14,14 @@ var router_1 = require("@angular/router");
 var requests_service_1 = require("../services/requests.service");
 var user_shared_service_1 = require("../services/user.shared.service");
 var his_util_service_1 = require("../services/his-util.service");
+var permissions_service_1 = require("../services/permissions.service");
 var LoginComponent = (function () {
-    function LoginComponent(requestsService, router, sharedService, HISUtilService) {
+    function LoginComponent(requestsService, router, sharedService, HISUtilService, permissionService) {
         this.requestsService = requestsService;
         this.router = router;
         this.sharedService = sharedService;
         this.HISUtilService = HISUtilService;
+        this.permissionService = permissionService;
     }
     ;
     LoginComponent.prototype.ngOnInit = function () {
@@ -48,6 +50,7 @@ var LoginComponent = (function () {
                             _this.sharedService.lastName = response['responseData'].lastName;
                             _this.sharedService.profileImg = response['responseData'].profileImg;
                             _this.sharedService.role = response['responseData'].role;
+                            _this.permissionService.loadPermissions(response['responseData'].permissions);
                             _this.router.navigate(['/dashboard']);
                         }
                         else {
@@ -55,6 +58,7 @@ var LoginComponent = (function () {
                             window.localStorage.removeItem(atob('access_token'));
                             window.localStorage.removeItem(atob('refresh_token'));
                             window.localStorage.removeItem(atob('expire_in'));
+                            window.localStorage.removeItem(atob('permissions'));
                             _this.error = response['responseMessage'];
                         }
                     }, function (error) {
@@ -68,6 +72,7 @@ var LoginComponent = (function () {
                     window.localStorage.removeItem(atob('access_token'));
                     window.localStorage.removeItem(atob('refresh_token'));
                     window.localStorage.removeItem(atob('expire_in'));
+                    window.localStorage.removeItem(atob('permissions'));
                 }
             }, function (error) {
                 //console.log(error);
@@ -93,7 +98,8 @@ var LoginComponent = (function () {
         __metadata("design:paramtypes", [requests_service_1.RequestsService,
             router_1.Router,
             user_shared_service_1.UserSharedService,
-            his_util_service_1.HISUtilService])
+            his_util_service_1.HISUtilService,
+            permissions_service_1.PermissionsService])
     ], LoginComponent);
     return LoginComponent;
 }());

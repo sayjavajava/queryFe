@@ -30,7 +30,7 @@ export class LoginComponent {
         if (form.valid) {
             this.requestsService.postRequestOauth2Token(
                 '/oauth/token'
-                , {
+                , { 
                     'userName': this.username,
                     'password': this.password,
                     'grantType': 'password',
